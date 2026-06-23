@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BusinessAcknowledgement Status="Success">
+    <BusinessAcknowledgementNumber>403496d71c74419e9d43ea9fd0e16575</BusinessAcknowledgementNumber>
+    <BusinessAcknowledgementDate>
+        <Date>
+            <Year>2026+01:00</Year>
+            <Month>5</Month>
+            <Day>12</Day>
+        </Date>
+    </BusinessAcknowledgementDate>
+    <Document DocumentName="DeliveryInstruction">
+        <DocumentNumber>475703-001</DocumentNumber>
+        <DocumentDate>
+            <Date>
+                <Year>2026+01:00</Year>
+                <Month>5</Month>
+                <Day>12</Day>
+            </Date>
+            <Time>15:50:30.000+01:00</Time>
+        </DocumentDate>
+    </Document>
+    <TransactionHistoryNumber>2026</TransactionHistoryNumber>
+    <Error>
+        <ErrorCode>0</ErrorCode>
+        <ErrorDescription>No errors</ErrorDescription>
+    </Error>
+    <SenderParty PartyType="Forwarder">
+        <PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879</PartyIdentifier>
+        <NameAddress>
+            <Name1>Matrans Rotterdam Terminal B.V.</Name1>
+            <Address1>Streefwaalseweg 15</Address1>
+            <City>Rotterdam-Pernis</City>
+            <PostalCode>3195 KN</PostalCode>
+            <Country ISOCountryCode="NL">Netherlands</Country>
+        </NameAddress>
+    </SenderParty>
+    <ReceiverParty PartyType="Supplier">
+        <NameAddress>
+            <Name1>SCA Logistics</Name1>
+            <Address1>Box 805</Address1>
+            <City>SUNDSVALL</City>
+            <PostalCode>85123</PostalCode>
+            <Country ISOCountryCode="SE">Sweden</Country>
+        </NameAddress>
+    </ReceiverParty>
+</BusinessAcknowledgement>

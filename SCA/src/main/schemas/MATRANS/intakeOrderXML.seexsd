@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:bic="http://www.seeburger.com/bicng/lang/schema/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" bic:messageType="XML" elementFormDefault="qualified">
+  <xsd:element name="INTAKE_ORDER">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="1" minOccurs="0" name="ORDER">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_in_ordnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_companycode">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_container_typecode">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_containernr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_cust_addressnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in1">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in2">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in3">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in4">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in5">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in6">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in7">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_custref_in8">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_dt_create">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_dt_discharge">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_dt_update">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_edi_in_ord_1">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_edi_in_ord_2">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_edi_in_ord_3">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_edi_in_ord_4">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_edi_in_ord_5">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_ext_edi_order_text">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_linecode">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_loc_terminalcode">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_projectnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_rec_addressnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_sealno">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_statuscode">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_supplier_addressnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_tim_create">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_tim_discharge">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_tim_updated">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_vehicletypecode">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_vehicletype">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_transporter_addressnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_transportnr">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="1" minOccurs="0" name="ord_transport_unit">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string"/>
+                </xsd:simpleType>
+              </xsd:element>
+              <xsd:element maxOccurs="unbounded" minOccurs="0" name="ORDER_LINE">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_in_ordnr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_in_linenr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_carrier">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_carriercode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_companycode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_container_typecode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_containernr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_cust_addressnr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_cust_productcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_custref_in1">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_custref_in2">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_custref_in3">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_damage_des">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_damagecode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_edi_in_line_1">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_edi_in_line_2">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_edi_in_line_3">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_edi_in_line_4">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_edi_in_line_5">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_ext_edi_line_text">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_grossweight">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_grossweightcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_nettweight">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_nettweightcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_outer_pck">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_outer_pckcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_packtypecode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_prodref1">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_prodref2">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_prodref3">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_prodref4">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_prodref5">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_product_id">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_productgroupcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_qty_controlcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_rec_addressnr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_remarks">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_stockrefnr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_supplier_addressnr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_supplier_shortname">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_supplier_name_1">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_term_place">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_termcode">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_transaction_customsrefnr">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="lin_warehouseref">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="1" minOccurs="0" name="container_type">
+                      <xsd:simpleType>
+                        <xsd:restriction base="xsd:string"/>
+                      </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="STOCK">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_containernr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_stocknr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_barcode_exp">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_barcode_id">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_barcode_id_internal">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_calcref1">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_calcref2">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_calcref3">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_carrier">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_carriercode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_outer_pck">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_outer_pckcode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_inner_pck">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_inner_pckcode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_companycode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_damagenr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_dt_create">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_dt_mutation">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_edi_stock_1">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_edi_stock_2">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_edi_stock_3">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_edi_stock_4">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_edi_stock_5">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_grossweight">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_grossweightcode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_in_linenr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_in_ordnr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_ind_active">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_ind_blocked">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_nettweight">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_nettweightcode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_packtypecode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_prodref1">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_prodref2">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_prodref3">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_prodref4">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_prodref5">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_product_id">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_productgroupcode">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_stockrefnr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_supplier_addressnr">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_tim_create">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_warehouseref">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                          <xsd:element maxOccurs="1" minOccurs="0" name="stk_remarks">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string"/>
+                            </xsd:simpleType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

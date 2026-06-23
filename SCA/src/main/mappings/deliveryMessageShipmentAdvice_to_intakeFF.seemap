@@ -1,0 +1,242 @@
+(:
+DeliveryMessageShipmentAdvice_to_intakeFF.seemap
+created at May 11, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "papiNet/DeliveryMessageV2R31.seexsd" as source;
+import schema default element namespace "http://www.seeburger.com/SCA/intakeFF" at "MATRANS/intakeFF.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+declare option ACCEPT_WITH_ERRORS "true";
+
+intakeFF 
+{
+
+	header {
+		airdry_weight := 'airdry_weight'
+		barcode_id := 'barcode_id'
+		bill_of_ladingnr := 'bill_of_ladingnr'
+		brandcode := 'brandcode'
+		cargo_trailer_id := 'cargo_trailer_id'
+		carrier := 'carrier'
+		carriercode := 'carriercode'
+		container_typecode := 'container_typecode'
+		containernr := 'containernr'
+		core_diameter := 'core_diameter'
+		cust_addressnr := 'cust_addressnr'
+		cust_productcode := 'cust_productcode'
+		cust_statuscode := 'cust_statuscode'
+		customscode := 'customscode'
+		custref_in1 := 'custref_in1'
+		custref_in2 := 'custref_in2'
+		custref_in3 := 'custref_in3'
+		custref_in4 := 'custref_in4'
+		delivery_ref := 'delivery_ref'
+		destination := 'destination'
+		diameter := 'diameter'
+		dt_discharge := 'dt_discharge'
+		dt_production := 'dt_production'
+		edi_reference := 'edi_reference'
+		edi_line_reference := 'edi_line_reference'
+		edi_stock_1 := 'edi_stock_1'
+		edi_stock_2 := 'edi_stock_2'
+		edi_stock_3 := 'edi_stock_3'
+		edi_stock_4 := 'edi_stock_4'
+		edi_stock_5 := 'edi_stock_5'
+		eta := 'eta'
+		export_countrycode := 'export_countrycode'
+		extra_alfa1 := 'extra_alfa1'
+		extra_alfa2 := 'extra_alfa2'
+		extra_alfa3 := 'extra_alfa3'
+		extra_number1 := 'extra_number1'
+		extra_number2 := 'extra_number2'
+		extra_number3 := 'extra_number3'
+		external_reference := 'external_reference'
+		grammage := 'grammage'
+		grossweight := 'grossweight'
+		grossweightcode := 'grossweightcode'
+		height := 'height'
+		inner_pck := 'inner_pck'
+		inner_pckcode := 'inner_pckcode'
+		items_per_pack := 'items_per_pack'
+		length := 'length'
+		lotnumber := 'lotnumber'
+		nettweight := 'nettweight'
+		nettweightcode := 'nettweightcode'
+		origin_countrycode := 'origin_countrycode'
+		outer_pck := 'outer_pck'
+		outer_pckcode := 'outer_pckcode'
+		parcel_id := 'parcel_id'
+		packtypecode := 'packtypecode'
+		pol := 'pol'
+		product_id := 'product_id'
+		productgroupcode := 'productgroupcode'
+		productitemdescription := 'productitemdescription'
+		purchase_order := 'purchase_order'
+		qualitycode := 'qualitycode'
+		rec_addressnr := 'rec_addressnr'
+		remarks := 'remarks'
+		sales_order := 'sales_order'
+		sealno := 'sealno'
+		shipping_ref := 'shipping_ref'
+		sscc := 'sscc'
+		supplier_addressnr := 'supplier_addressnr'
+		term_place := 'term_place'
+		termcode := 'termcode'
+		trafficcode := 'trafficcode'
+		trafficref1 := 'trafficref1'
+		trafficref2 := 'trafficref2'
+		trafficref3 := 'trafficref3'
+		transport_id := 'transport_id'
+		voyage := 'voyage'
+		warehouseref := 'warehouseref'
+		width := 'width'
+		custref_in5 := 'custref_in5'
+		custref_in6 := 'custref_in6'
+		custref_in7 := 'custref_in7'
+		H := 'H'
+		}
+
+	record <- /DeliveryMessage/DeliveryMessageLineItem/PackageInformation
+	{
+	(::)
+		(:Sea - ConventionalVessel:)
+		airdry_weight := ''
+		if(@PackageType = 'Vehicle') {
+			barcode_id := Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'Supplier']
+		} else {
+			barcode_id := Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'UIC14']
+		}
+		bill_of_ladingnr := ''
+		brandcode := ../Product/ProductIdentifier[@Agency = 'Supplier'][@ProductIdentifierType = 'BrandName']
+		cargo_trailer_id := ''
+		carrier := ''
+		carriercode := ''
+		container_typecode := ../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics/@TransportUnitType
+		containernr := ../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics[@TransportUnitType = 'Cassette']/TransportUnitIdentifier[@TransportUnitIdentifierType = 'CassetteID']
+		core_diameter := ''
+		cust_addressnr := ''
+		cust_productcode := ''
+		cust_statuscode := ''
+		customscode := ''
+		custref_in1 := SupplierMarks
+		custref_in2 := '' 
+		custref_in3 := ''
+		custref_in4 := ''  
+		delivery_ref := ''
+		destination := ''
+		diameter := parent::DeliveryMessageLineItem/Product/Paper/Reel/ReelConversionCharacteristics/ReelDiameter/Value[@UOM = 'Millimeter']
+		dt_discharge := ../../DeliveryMessageHeader/DeliveryLeg/DeliveryDestination/Date/Day || '/' ||
+		 ../../DeliveryMessageHeader/DeliveryLeg/DeliveryDestination/Date/Month || '/' || 
+		 ../../DeliveryMessageHeader/DeliveryLeg/DeliveryDestination/Date/Year
+		dt_production := '' 
+		edi_reference := ''
+		edi_line_reference := ''
+		edi_stock_1 := ../../DeliveryMessageHeader/DeliveryMessageNumber
+		edi_stock_2 := ../DeliveryMessageReference[@DeliveryMessageReferenceType = 'DeliveryMessageNumber'][@AssignedBy = 'Forwarder']
+		edi_stock_3 := ../DeliveryMessageReference[@DeliveryMessageReferenceType = 'DeliveryMessageLineItemNumber'][@AssignedBy = 'Forwarder']
+		edi_stock_4 := @PackageType
+		edi_stock_5 := ''
+		eta := ''
+		export_countrycode := ''
+		extra_alfa1 := ../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/@TransportVehicleType
+		extra_alfa2 := ''
+		extra_alfa3 := ''
+		extra_number1 := ''
+		extra_number2 := ''
+		extra_number3 := ''
+		external_reference := ''
+		grammage := parent::DeliveryMessageLineItem/Product/Paper/PaperCharacteristics/BasisWeight[@ProductBasisSizeType = 'GramsPerSquareMeter']/DetailValue[@UOM = 'GramsPerSquareMeter']
+		if(Quantity/@QuantityType = 'GrossWeight') {
+			grossweight := Quantity/Value[@UOM = 'Kilogram']
+					}
+		grossweightcode := ''	
+		height := parent::DeliveryMessageLineItem/Product/Pulp/Bale/BaleConversionCharacteristics/BaleHeight/Value[@UOM = 'Millimeter']
+		inner_pck := ItemCount/Value[@UOM = 'Bale']
+		inner_pckcode := ''
+		items_per_pack := ''
+		if(exists(parent::DeliveryMessageLineItem/Product/Pulp/Bale/BaleConversionCharacteristics/BaleDepth/Value[@UOM = 'Millimeter'])) {
+			length := parent::DeliveryMessageLineItem/Product/Pulp/Bale/BaleConversionCharacteristics/BaleDepth/Value[@UOM = 'Millimeter']
+		}
+		if(exists(ReelItem/DeliveryMessageReelCharacteristics/ReelLength/Value[@UOM = 'Meter'])) {
+			length := ReelItem/DeliveryMessageReelCharacteristics/ReelLength/Value[@UOM = 'Meter']
+		}
+		lotnumber := ''
+		nettweight := ''
+		nettweightcode := ''
+		origin_countrycode := ''
+		(:for $x at $i in ../PackageInformation group by  $barcode := Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'UIC14'] {
+			let $outer_pck := count(distinct-values($barcode))
+			TEST := $outer_pck
+		}:)
+		(:outer_pck := count(distinct-values(//DeliveryMessage/DeliveryMessageLineItem/PackageInformation/Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'UIC14'])):)
+		let $outer_pck := distinct-values( for $x at $i in ../PackageInformation group by  $barcode := Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'UIC14'] return $barcode)
+		outer_pck := count($outer_pck)
+		
+		(:for $d in distinct-values(../PackageInformation/Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'UIC14']) {
+				
+				outer_pck := count(for $x in /Identifier[@IdentifierType = 'Barcode'][@IdentifierCodeType = 'UIC14'] = $d return $x)
+				outer_pck := count($d)
+				
+		}:)
+		
+		
+		outer_pckcode := ''
+		parcel_id := ''
+		packtypecode := ''
+		pol := ''
+	
+		product_id := substring(../Product/ProductIdentifier[@Agency = 'Forwarder'][@ProductIdentifierType = 'Other'],1,25)
+		productgroupcode := ''
+		productitemdescription := ''
+		purchase_order := ''
+		qualitycode := ../Product/ProductIdentifier[@Agency = 'Supplier'][@ProductIdentifierType = 'GradeCode']
+		rec_addressnr := ''
+		remarks := ''
+		sales_order := ''
+		sealno := ''
+		shipping_ref := ''
+		sscc := ''
+		
+		(:supplier_addressnr := ../../DeliveryMessageLineItem/MillCharacteristics/MillParty/PartyIdentifier[@PartyIdentifierType = 'AssignedBySender']:)
+		(:supplier_addressnr := translate(../../DeliveryMessageLineItem/MillCharacteristics/MillParty/PartyIdentifier[@PartyIdentifierType = 'AssignedBySender'],'ÅÄÖåäö', 'AAOaao'):)
+		supplier_addressnr := translate(parent::DeliveryMessageLineItem/MillCharacteristics/MillParty/PartyIdentifier[@PartyIdentifierType = 'AssignedBySender'],'ÅÄÖåäö', 'AAOaao')
+		term_place := ''
+		termcode := ''
+		trafficcode := ''
+		trafficref1 := ''
+		trafficref2 := ''
+		trafficref3 := ''
+		
+		transport_id := translate(../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/TransportVehicleIdentifier[@TransportVehicleIdentifierType = 'VesselName'],'ÅÄÖåäö', 'AAOaao')
+		
+		if(exists(../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/TransportVehicleIdentifier[@TransportVehicleIdentifierType = 'VoyageNumber'])) {
+			voyage := ../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/TransportVehicleIdentifier[@TransportVehicleIdentifierType = 'VoyageNumber']
+			doc("mapping:output-parameters"){
+				voyageNumber := ../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/TransportVehicleIdentifier[@TransportVehicleIdentifierType = 'VoyageNumber']
+			}
+		}
+		if(exists(../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics[@TransportUnitType = 'Trailer']/TransportUnitIdentifier[@TransportUnitIdentifierType = 'TrailerID'])) {
+			voyage := ../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics[@TransportUnitType = 'Trailer']/TransportUnitIdentifier[@TransportUnitIdentifierType = 'TrailerID']
+			doc("mapping:output-parameters"){
+				voyageNumber := ../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics[@TransportUnitType = 'Trailer']/TransportUnitIdentifier[@TransportUnitIdentifierType = 'TrailerID']
+			}
+			
+		}
+		warehouseref := ''
+		if(exists(parent::DeliveryMessageLineItem/Product/Paper/Reel/ReelConversionCharacteristics/ReelWidth/Value[@UOM = 'Millimeter'])) {
+			width := parent::DeliveryMessageLineItem/Product/Paper/Reel/ReelConversionCharacteristics/ReelWidth/Value[@UOM = 'Millimeter']
+		}
+		if(exists(parent::DeliveryMessageLineItem/Product/Pulp/Bale/BaleConversionCharacteristics/BaleWidth/Value[@UOM = 'Millimeter'])) {
+			width := parent::DeliveryMessageLineItem/Product/Pulp/Bale/BaleConversionCharacteristics/BaleWidth/Value[@UOM = 'Millimeter']
+		}
+		custref_in5 := ''
+		custref_in6 := ''
+		custref_in7 := ''
+		
+		
+		
+		H := 'D'
+		
+		
+		 } }
+		

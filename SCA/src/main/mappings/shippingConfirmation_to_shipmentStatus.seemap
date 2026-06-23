@@ -1,0 +1,101 @@
+(:
+shippingConfirmation_to_shipmentStatus.seemap
+created at May 13, 2026 by r.hilberts
+:)
+import schema default element namespace "http://www.seeburger.com/SCA/shippingConfirmationFF" at "MATRANS/shippingConfirmationFF.seexsd" as source;
+import schema default element namespace "" at "papiNet/ShipmentStatusV2R31.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+ShipmentStatus <- /shippingConfirmationFF
+{   
+	doc("mapping:output-parameters") {
+		ShipmentStatusFilename := 'SS_' || record[1]/wm_in_ord_in_ordnr || '_' || 
+					generateUUID() || '_' || 
+					format-date(current-dateTime(),'yyyyMMdd') || '-' ||
+					format-date(current-dateTime(),'HHmmss') ||  '.xml'
+	}
+	
+	ShipmentStatusHeader {
+		ShipmentStatusNumber := record[1]/wm_in_ord_in_ordnr
+		ShipmentStatusIssueDate {
+			Date {
+				Year := format-date(current-dateTime(),'yyyy')
+				Month := format-date(current-dateTime(),'MM')
+				Day := format-date(current-dateTime(),'dd')
+			}
+			Time := format-date(current-dateTime(),'HH:mm:ss')
+		}
+		SenderParty { 
+			@PartyType := 'Warehouse'
+			PartyIdentifier {
+				@PartyIdentifierType := 'AssignedByReceiver'
+				text() := 'MRT01'
+			}
+			NameAddress {
+				Name1 := 'Matrans Rotterdam Terminal B.V.'
+				Address1 := 'Streefwaalseweg 15'
+				City := 'Rotterdam-Pernis'
+				PostalCode {
+					text() := '3195 KN'
+				}
+				Country {
+					@ISOCountryCode := 'NL'
+					text() := 'Netherlands'
+				}
+			}
+		
+		}
+		ReceiverParty {
+			@PartyType := 'Forwarder'
+			PartyIdentifier {
+				@PartyIdentifierType := "AssignedBySender"
+				text() := '1.3.6.1.4.1.16879'
+			}
+			PartyIdentifier {
+				@PartyIdentifierType := "papiNetGlobalPartyIdentifier"
+				text() := '1.3.6.1.4.1.16879'
+			}
+			NameAddress {
+				Name1 := 'SCA PACKAGING (UK CENTRAL OFFICE)'
+				
+			}
+		}
+		
+		
+	}
+	ShipmentStatusShipment {
+		ShipmentStatusReference {
+			@ShipmentStatusReferenceType := 'DeliveryMessageNumber'
+			@AssignedBy := 'Forwarder'
+			if(isFilled(record[1]/wm_in_line_remarks)) {
+				text() := token-at-index(record[1]/wm_in_line_remarks, '|',1)
+				
+				}
+		}
+		ShipmentEventInformation {
+			ShipmentEventIdentifier {
+				@ShipmentEventType := 'Unloading'
+				@AssignedBy := 'Warehouse'
+				@ShipmentEventQualifierType := 'Arrived'
+				text() := substring-after(record[1]/wm_transport_transportunitcode,'-')
+			}
+			ShipmentEventDate {
+				Date
+					{
+					Year := format-date(record[1]/wm_in_ord_dt_discharge, 'yyyy')
+					Month := format-date(record[1]/wm_in_ord_dt_discharge, 'MM')
+					Day := format-date(record[1]/wm_in_ord_dt_discharge, 'dd')
+				}
+			}
+			ShipmentStatusIdentifier {
+				@ShipmentStatusType := 'Unspecified'
+				@AssignedBy := 'Warehouse'
+				text() := substring-after(record[1]/wm_transport_transportunitcode,'-')
+			}
+		}
+		
+		
+	}
+}
+

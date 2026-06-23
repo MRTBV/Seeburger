@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" version="V2R31_20250325">
+  	
+  <xs:annotation>
+    		
+    <xs:documentation>
+            Copyright 2000 - 2025 the Confederation of European Paper Industries AISBL ("papiNet") the "Copyright Owner". 
+            All rights reserved by the Copyright Owner under the laws of 
+            the United States, Belgium, the European Economic Community, and all states, domestic and foreign. 
+            For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.
+		</xs:documentation>
+    	
+  </xs:annotation>
+  
+  <xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+  	
+  <xs:element name="InfoRequest">
+    		
+    <xs:complexType>
+      			
+      <xs:sequence>
+        				
+        <xs:element ref="RequestNumber"/>
+        				
+        <xs:element minOccurs="0" ref="InfoRequestIssueDate"/>
+        				
+        <xs:element ref="RequestingParty"/>
+        				
+        <xs:element maxOccurs="unbounded" ref="RespondToParty"/>
+        				
+        <xs:element minOccurs="0" ref="SenderParty"/>
+        				
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="ReceiverParty"/>
+        				
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="OtherParty"/>
+        				
+        <xs:choice>
+          					
+          <xs:element ref="InventoryStatusRequestDetail"/>
+          					
+          <xs:element ref="OrderStatusRequestDetail"/>
+          					
+          <xs:element ref="AvailabilityStatusRequestDetail"/>
+          					
+          <xs:element ref="PlanningRequestDetail"/>
+          					
+          <xs:element ref="ProductQualityRequestDetail"/>
+          					
+          <xs:element ref="ShippingInstructionsRequestDetail"/>
+          					
+          <xs:element ref="ShipmentStatusRequestDetail"/>
+          					
+          <xs:element ref="StatementRequestDetail"/>
+          					
+          <xs:element ref="CalendarRequestDetail"/>
+          					
+          <xs:element ref="ProductAttributesRequestDetail"/>
+          					
+          <xs:element ref="MeasuringTicketRequestDetail"/>
+          					
+          <xs:element ref="PreflightRequestDetail"/>
+          				
+        </xs:choice>
+        			
+      </xs:sequence>
+      			
+      <xs:attribute name="InfoRequestType" type="infoRequestType" use="required"/>
+      			
+      <xs:attribute default="eng" name="Language" type="languageType"/>
+      		
+    </xs:complexType>
+    	
+  </xs:element>
+  
+</xs:schema>

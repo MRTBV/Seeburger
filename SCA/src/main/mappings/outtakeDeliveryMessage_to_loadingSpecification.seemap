@@ -1,0 +1,349 @@
+(:
+outtakeDeliveryMessage_to_deliveryMessage.seemap
+created at May 13, 2026 by r.hilberts
+:)
+import schema default element namespace "http://www.seeburger.com/SCA/outtakeDeliveryMessageFF" at "MATRANS/outtakeDeliveryMessageFF.seexsd" as source;
+import schema default element namespace "" at "papiNet/DeliveryMessageV2R31.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+(: This option suppresses the creation of empty nodes. 
+ * A node is not empty if it is a primitive node with a value or if it contains a non-empty child node.
+:)
+@opt("skip.empty")
+DeliveryMessage <- /outtakeDeliveryMessageFF
+{   
+	@DeliveryMessageType := 'LoadedSpecification'
+	@DeliveryMessageStatusType := 'Original'
+	DeliveryMessageHeader {
+		DeliveryMessageNumber := record[1]/wm_out_ord_out_ordnr
+		DeliveryMessageDate {
+			Date {
+				Year := format-date(current-dateTime(),'yyyy')
+				Month := format-date(current-dateTime(),'MM')
+				Day := format-date(current-dateTime(),'dd')
+			}
+			Time := format-date(current-dateTime(),'HH:mm:ss')
+			
+		}
+		DeliveryMessageReason {
+			DeliveryMessageReasonCode {
+				@Agency := 'Other'
+				text() := record[1]/wm_out_ord_reasoncode
+				
+				
+			}
+			DeliveryMessageReasonDescription := record[1]/wm_out_ord_reasondescription
+		}
+		DeliveryMessageReference {
+			@DeliveryMessageReferenceType := "OriginalDeliveryNumber"
+			text() := record[1]/wm_out_line_custref_out1
+		}
+		SenderParty { 
+			@PartyType := 'Warehouse'
+			PartyIdentifier {
+				@PartyIdentifierType := 'AssignedBySender'
+				text() := 'MRT01'
+			}
+			NameAddress {
+				Name1 := 'Matrans Rotterdam Terminal B.V.'
+				Address1 := 'Streefwaalseweg 15'
+				City := 'Pernis'
+				PostalCode {
+					text() := '3195 KN'
+				}
+				Country {
+					@ISOCountryCode := 'NL'
+					text() := 'Netherlands'
+				}
+			}
+		
+		}
+		ReceiverParty {
+			@PartyType := 'Forwarder'
+			PartyIdentifier
+			{
+				@PartyIdentifierType := 'papiNetGlobalPartyIdentifier'
+				text() := '1.3.6.1.4.1.16879'
+			}
+			NameAddress
+			{
+				Name1 := 'SCA Logistics'
+				Address1 := 'Box 805'
+				City := 'SUNDSVALL'
+				PostalCode {
+					text() := '85123'
+				}
+				Country {
+					@ISOCountryCode := 'SE'
+					text() := 'Sweden'
+				}
+			}
+			
+		}
+		ShipToCharacteristics {
+			ShipToParty {
+				@PartyType := 'ShipTo'
+				PartyIdentifier {
+					@PartyIdentifierType := 'AssignedBySeller'
+					text() := record[1]/wm_out_ord_delivery_shortname
+				}
+				NameAddress {
+					Name1 := record[1]/ wm_out_ord_delivery_name
+					Address1 := record[1]/wm_out_ord_delivery_address
+					City := record[1]/wm_out_ord_city
+					PostalCode {
+						text() := record[1]/wm_out_ord_delivery_zipcode
+					}
+					Country {
+						@ISOCountryCode := record[1]/wm_out_ord_destination_countrycode
+						text() := record[1]/wm_out_ord_country
+					}
+					
+				}
+			}
+
+		}
+		DeliveryLeg {
+			@DeliveryModeType := 'PickUp'
+			DeliveryLegSequenceNumber := 1
+			DeliveryOrigin {
+				Date {
+					Year := format-date(current-dateTime(),'yyyy')
+					Month := format-date(current-dateTime(),'MM')
+					Day := format-date(current-dateTime(),'dd')
+					}
+				Time := format-date(current-dateTime(),'HH:mm:ss')
+				LocationParty {
+					@PartyType := "Warehouse"
+					PartyIdentifier {
+						@PartyIdentifierType := "AssignedByReceiver"
+						text() := 'ROT'
+					}
+					NameAddress {
+						Name1 := 'Matrans Rotterdam Terminal B.V.'
+						Address1 := 'Streefwaalseweg 15'
+						City := 'Pernis'
+						PostalCode {
+							text() := '3195 KN'
+						}
+						Country {
+							@ISOCountryCode := 'NL'
+							text() := 'Netherlands'
+					}
+						
+					}
+				}
+			}
+			TransportModeCharacteristics {
+				@TransportModeType := record[1]/wm_out_ord_transportmode
+				TransportModeCode {
+					@Agency := 'Intrastat'
+					text() := 'TR'
+				}
+			}
+			TransportVehicleCharacteristics {
+				@TransportVehicleType := record[1]/wm_out_ord_vehicletypecode
+				TransportVehicleIdentifier {
+					@TransportVehicleIdentifierType := record[1]/wm_out_ord_vehicleidentifiertype
+					text() := record[1]/wm_out_ord_vehicleidentifier
+				}
+			}
+			TransportUnitCharacteristics {
+				@TransportUnitType := record[1]/wm_out_ord_TransportUnitType
+				TransportUnitIdentifier {
+					@TransportUnitIdentifierType :=  record[1]/wm_out_ord_TransportUnitIdentifierType
+					text() := record[1]/wm_out_ord_TransportUnitIdentifier
+				}
+				if(record[1]/wm_out_ord_sealno != ''){ 
+				TransportUnitIdentifier {
+					@TransportUnitIdentifierType :=  'SealNumber'
+					text() := record[1]/wm_out_ord_sealno
+				}
+				TransportUnitText := record[1]/wm_out_ord_ord_container_iso 
+				
+				}
+			}
+			DeliveryDestination {
+				Date
+				{
+					Year := format-date(record[1]/wm_out_ord_dt_delivery, 'yyyy')
+					Month := format-date(record[1]/wm_out_ord_dt_delivery, 'MM')
+					Day := format-date(record[1]/wm_out_ord_dt_delivery, 'dd')
+				}
+				LocationParty {
+					@PartyType := "ShipTo"
+					(:if(record[1]/wm_out_ord_delivery_shortname != '') {
+					PartyIdentifier {
+					@PartyIdentifierType := 'AssignedBySeller'
+					text() := record[1]/wm_out_ord_delivery_shortname
+					
+					}:)
+				}
+				NameAddress {
+					Name1 := record[1]/ wm_out_ord_delivery_name
+					Address1 := record[1]/wm_out_ord_delivery_address
+					City := record[1]/wm_out_ord_city
+					PostalCode {
+						text() := record[1]/wm_out_ord_delivery_zipcode
+					}
+					Country {
+						@ISOCountryCode := record[1]/wm_out_ord_destination_countrycode
+						text() := record[1]/wm_out_ord_country
+					}
+					
+				}
+				}
+			}
+			
+		}
+			
+	
+
+	(:for $x at $index in /outtakeDeliveryMessageFF/record group by wm_out_line_custref_in1:)
+
+	for $x at $index in /outtakeDeliveryMessageFF/record group by wm_out_line_custref_in1 
+	 {	
+
+	DeliveryMessageLineItem {
+		DeliveryMessageLineItemNumber := $x[1]/wm_out_line_edi_out_line_2
+		PurchaseOrderLineItemNumber := $x[1]/wm_out_line_edi_out_line_2
+		DeliveryMessageReference {
+			@DeliveryMessageReferenceType := "PackageMark"
+			@AssignedBy := 'Supplier'
+			text() := $x[1]/wm_out_line_custref_in1
+		}
+		DeliveryMessageReference {
+			@DeliveryMessageReferenceType := "LoadingInstructionNumber"
+			@AssignedBy := 'Forwarder'
+			text() := $x[1]/wm_out_ord_custref_out1
+		}
+		if(isFilled(substring-before($x[1]/wm_out_line_edi_out_line_1,'-'))){
+			DeliveryMessageReference {
+				@DeliveryMessageReferenceType := "LoadingOrderNumber"
+				@AssignedBy := 'Forwarder'
+				text() := substring-before($x[1]/wm_out_line_edi_out_line_1,'-')
+			}
+		}
+		DeliveryMessageReference {
+			@DeliveryMessageReferenceType := "LoadingOrderLineNumber"
+			@AssignedBy := 'Forwarder'
+			text() := $x[1]/wm_out_line_edi_out_line_2
+		}
+		DeliveryMessageReference {
+			@DeliveryMessageReferenceType := 'Other'
+			text() := 'SELLER'
+		}
+		
+		Product {
+			ProductIdentifier {
+				@Agency := 'Forwarder'
+				@ProductIdentifierType := 'Other'
+				text() := $x[1]/wm_out_line_cust_productcode
+			}
+			
+			(:if($x[1]/wm_stock_trafficref2 != ''){
+			ProductIdentifier {
+				@Agency := 'Supplier'
+				@ProductIdentifierType := 'BrandName'
+				text() := $x[1]/wm_stock_trafficref2
+				
+				}
+			}
+			if(exists($x[1]/wm_stock_trafficref1 )) {
+				ProductIdentifier {
+					@Agency := 'Supplier'
+					@ProductIdentifierType := 'GradeCode'
+					text() := $x[1]/wm_stock_trafficref1 
+				}
+			}:)	
+		}
+		NumberOfPackages := count($x)
+		Quantity {
+							@QuantityType := 'GrossWeight'
+				if(/outtakeDeliveryMessageFF/record[1]/wm_out_ord_reasoncode = 'LOADED'){
+					@QuantityTypeContext :=  'Loaded'
+				}else {
+					@QuantityTypeContext := 'Delivered'
+				}
+				
+
+			Value {
+				@UOM := 'Kilogram'
+				text() := sum($x/wm_stock_grossweight)
+			}
+		}
+
+		MillCharacteristics {
+			MillParty {
+				PartyIdentifier {
+					@PartyIdentifierType := 'AssignedByReceiver'
+					text() := $x[1]/wm_out_line_supplier_shortname
+				}
+				NameAddress {
+					Name1 := $x[1]/wm_out_line_supplier_name
+				}
+			}
+		}
+
+		PackageInformation <- $x {
+			if(wm_stock_productgroupcode = 'BA1') {
+				@PackageType :=  'PulpUnit'
+			} else {
+				@PackageType := wm_stock_edi_stock_4
+				}
+			
+			(:@MixedProductPalletIndicator := 'No':)
+			Identifier {
+				@IdentifierCodeType := 'UIC14'
+				@IdentifierType := 'Barcode'
+				text() := wm_stock_barcode_id
+			}
+			Quantity {
+				@QuantityType := 'GrossWeight'
+				if(/outtakeDeliveryMessageFF/record[1]/wm_out_ord_reasoncode = 'LOADED'){
+					@QuantityTypeContext :=  'Loaded'
+				}else {
+					@QuantityTypeContext := 'Delivered'
+				}
+				
+				Value {
+					@UOM := 'Kilogram'
+					text() := format-number(wm_stock_grossweight,'#.0')
+				}
+			}
+		}
+							
+	}
+
+	DeliveryMessageSummary {
+		TotalQuantity {
+			@QuantityType := 'GrossWeight'
+			if(/outtakeDeliveryMessageFF/record[1]/wm_out_ord_reasoncode = 'LOADED'){
+				@QuantityTypeContext :=  'Loaded'
+			}else {
+				@QuantityTypeContext := 'Delivered'
+			}
+				
+			
+			(:if(record/wm_out_ord_statuscode = 'FINISHED') {
+				@QuantityTypeContext := 'Loaded'	
+			}else {
+				@QuantityTypeContext := 'Delivered'
+			}:)
+			Value {
+				@UOM := 'Kilogram'
+				text() := format-number(sum(wm_stock_grossweight),'#.0')
+			}
+		}
+		TotalInformationalQuantity {
+			@QuantityType := 'Count'
+			(:@QuantityTypeContext := 'CutOff':)
+			Value {
+				@UOM := 'Package'
+				text() := sum(wm_stock_outer_pck)
+			}
+		}
+}	
+	}
+}

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:prodata="urn:schemas-progress-com:xml-prodata:0001" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+  <xsd:element name="OUTTAKE_ORDER" prodata:datasetName="OUTTAKE_ORDER" prodata:proDataSet="true">
+        
+    <xsd:complexType>
+            
+      <xsd:sequence>
+                
+        <xsd:element maxOccurs="unbounded" minOccurs="0" name="ORDER">
+                    
+          <xsd:complexType>
+                        
+            <xsd:sequence>
+                            
+              <xsd:element name="ord_out_ordnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                            
+              <xsd:element default="true" name="ord_ind_loadinginstruction" nillable="true" prodata:format="true/false" type="xsd:boolean"/>
+                            
+              <xsd:element name="ord_companycode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_container_typecode" nillable="true" prodata:format="X(10)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_containernr" nillable="true" prodata:format="X(13)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out1" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out2" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out3" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out4" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out5" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out6" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out7" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_custref_out8" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_address" nillable="true" prodata:format="X(300)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_shortname" nillable="true" prodata:format="X50" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_name" nillable="true" prodata:format="X(40)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_zipcode" nillable="true" prodata:format="x(10)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_city" nillable="true" prodata:format="X50" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_countrycode" nillable="true" prodata:format="X50" type="xsd:string"/>
+                            
+              <xsd:element name="ord_delivery_country" nillable="true" prodata:format="X50" type="xsd:string"/>
+                            
+              <xsd:element name="ord_dt_create" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                            
+              <xsd:element name="ord_dt_delivery" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                            
+              <xsd:element name="ord_dt_delivery_to" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                            
+              <xsd:element name="ord_dt_loading" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                            
+              <xsd:element name="ord_dt_update" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                            
+              <xsd:element name="ord_edi_out_ord_1" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_edi_out_ord_2" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_edi_out_ord_3" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_edi_out_ord_4" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_edi_out_ord_5" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_ext_edi_order_text" nillable="true" prodata:format="x(4000)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_linecode" nillable="true" prodata:format="X(10)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_loc_terminalcode" nillable="true" prodata:format="X(3)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_projectnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                            
+              <xsd:element name="ord_rec_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                            
+              <xsd:element name="ord_sealno" nillable="true" prodata:format="X(40)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_statuscode" nillable="true" prodata:format="X(12)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_tim_create" nillable="true" prodata:format="XX:XX" type="xsd:string"/>
+                            
+              <xsd:element name="ord_tim_delivery" nillable="true" prodata:format="XX:XX" type="xsd:string"/>
+                            
+              <xsd:element name="ord_tim_delivery_to" nillable="true" prodata:format="XX:XX" type="xsd:string"/>
+                            
+              <xsd:element name="ord_tim_loading" nillable="true" prodata:format="XX:XX" type="xsd:string"/>
+                            
+              <xsd:element name="ord_tim_updated" nillable="true" prodata:format="XX:XX" type="xsd:string"/>
+                            
+              <xsd:element name="ord_transporter_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                            
+              <xsd:element name="ord_transportnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                            
+              <xsd:element name="ord_transportunitcode" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_vehicletype" nillable="true" prodata:format="X(15)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_transportmode" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_deliverycode" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_external_reference" nillable="true" prodata:format="x(30)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_vehicleidentifier" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_vehicleidentifiertype" nillable="true" prodata:format="X(15)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_TransportUnitType" nillable="true" prodata:format="X(15)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_TransportUnitIdentifierType" nillable="true" prodata:format="X(15)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_TransportUnitIdentifier" nillable="true" prodata:format="X(15)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_container_iso" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_reasoncode" nillable="true" prodata:format="X(20)" type="xsd:string"/>
+                            
+              <xsd:element name="ord_reasondescription" nillable="true" prodata:format="X(25)" type="xsd:string"/>
+                            
+              <xsd:element maxOccurs="unbounded" minOccurs="0" name="ORDER_LINE">
+                                
+                <xsd:complexType>
+                                    
+                  <xsd:sequence>
+                                        
+                    <xsd:element name="lin_out_ordnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_out_linenr" nillable="true" prodata:format="9999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_carrier" nillable="true" prodata:format="ZZZ9" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_carriercode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_companycode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_container_typecode" nillable="true" prodata:format="X(10)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_containernr" nillable="true" prodata:format="X(13)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_cust_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_cust_productcode" nillable="true" prodata:format="X(40)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_custref_in1" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_custref_out1" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_custref_out2" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_custref_out3" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_delivery_address" nillable="true" prodata:format="X(150)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_delivery_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_dt_delivery" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                                        
+                    <xsd:element name="lin_edi_out_line_1" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_edi_out_line_2" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_edi_out_line_3" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_edi_out_line_4" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_edi_out_line_5" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_ext_edi_line_text" nillable="true" prodata:format="x(1000)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_grossweight" nillable="true" prodata:format="ZZZZZZZZ9.99" type="xsd:decimal"/>
+                                        
+                    <xsd:element name="lin_grossweightcode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_outer_pck" nillable="true" prodata:format="ZZZZZ9" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_outer_pckcode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_packtypecode" nillable="true" prodata:format="X(10)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_prodref1" nillable="true" prodata:format="X(100)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_prodref2" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_prodref3" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_prodref4" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_prodref5" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_product_id" nillable="true" prodata:format="X(19)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_productgroupcode" nillable="true" prodata:format="X(3)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_qty_controlcode" nillable="true" prodata:format="X(6)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_rec_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_remarks" nillable="true" prodata:format="X(1000)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_stockrefnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_supplier_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_supplier_shortname" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_supplier_name" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_term_place" nillable="true" prodata:format="X(25)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_termcode" nillable="true" prodata:format="X(3)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_transaction_customsrefnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                        
+                    <xsd:element name="lin_warehouseref" nillable="true" prodata:format="X(25)" type="xsd:string"/>
+                                        
+                    <xsd:element name="lin_packagetype" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                        
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="STOCK">
+                                            
+                      <xsd:complexType>
+                                                
+                        <xsd:sequence>
+                                                    
+                          <xsd:element name="stk_stocknr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_barcode_exp" nillable="true" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_barcode_id" nillable="true" prodata:format="X(35)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_barcode_id_internal" nillable="true" prodata:format="X(35)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_calcref1" nillable="true" prodata:format="&gt;&gt;,&gt;&gt;9.99" type="xsd:decimal"/>
+                                                    
+                          <xsd:element name="stk_calcref2" nillable="true" prodata:format="&gt;&gt;,&gt;&gt;9.99" type="xsd:decimal"/>
+                                                    
+                          <xsd:element name="stk_calcref3" nillable="true" prodata:format="&gt;&gt;,&gt;&gt;9.99" type="xsd:decimal"/>
+                                                    
+                          <xsd:element name="stk_carrier" nillable="true" prodata:format="ZZZ9" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_carriercode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_companycode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_damagenr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_dt_create" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                                                    
+                          <xsd:element name="stk_dt_mutation" nillable="true" prodata:format="99/99/9999" type="xsd:date"/>
+                                                    
+                          <xsd:element name="stk_edi_stock_1" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_edi_stock_2" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_edi_stock_3" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_edi_stock_4" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_edi_stock_5" nillable="true" prodata:format="x(255)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_grossweight" nillable="true" prodata:format="ZZZZZZZZ9.99" type="xsd:decimal"/>
+                                                    
+                          <xsd:element name="stk_grossweightcode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_in_linenr" nillable="true" prodata:format="9999" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_in_ordnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_ind_active" nillable="true" prodata:initial="prodata:unknown" type="xsd:boolean"/>
+                                                    
+                          <xsd:element name="stk_ind_blocked" nillable="true" prodata:initial="prodata:unknown" type="xsd:boolean"/>
+                                                    
+                          <xsd:element name="stk_nettweight" nillable="true" prodata:format="ZZZZZZZZ9.99" type="xsd:decimal"/>
+                                                    
+                          <xsd:element name="stk_nettweightcode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_outer_pck" nillable="true" prodata:format="ZZZZZ9" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_outer_pckcode" nillable="true" prodata:format="X(4)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_packtypecode" nillable="true" prodata:format="X(10)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_prodref1" nillable="true" prodata:format="X(100)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_prodref2" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_prodref3" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_prodref4" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_prodref5" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_product_id" nillable="true" prodata:format="X(19)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_productgroupcode" nillable="true" prodata:format="X(3)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_stockrefnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_supplier_addressnr" nillable="true" prodata:format="99999999" type="xsd:int"/>
+                                                    
+                          <xsd:element name="stk_tim_create" nillable="true" prodata:format="XX:XX" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_warehouseref" nillable="true" prodata:format="X(25)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_trafficref1" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                                    
+                          <xsd:element name="stk_trafficref2" nillable="true" prodata:format="X(50)" type="xsd:string"/>
+                                                  
+                        </xsd:sequence>
+                                              
+                      </xsd:complexType>
+                                          
+                    </xsd:element>
+                                      
+                  </xsd:sequence>
+                                  
+                </xsd:complexType>
+                              
+              </xsd:element>
+                          
+            </xsd:sequence>
+                      
+          </xsd:complexType>
+                  
+        </xsd:element>
+              
+      </xsd:sequence>
+          
+    </xsd:complexType>
+        
+    <xsd:unique name="ORDER" prodata:primaryIndex="true">
+            
+      <xsd:selector xpath=".//ORDER"/>
+            
+      <xsd:field xpath="ord_out_ordnr"/>
+          
+    </xsd:unique>
+        
+    <xsd:keyref name="RELATION1" prodata:foreignKeyHidden="true" prodata:nested="true" refer="ORDER">
+            
+      <xsd:selector xpath=".//ORDER_LINE"/>
+            
+      <xsd:field xpath="ord_out_ordnr"/>
+          
+    </xsd:keyref>
+      
+  </xsd:element>
+    
+  <xsd:annotation>
+        
+    <xsd:appinfo>
+            
+      <prodata:relation name="RELATION2" prodata:child="STOCK" prodata:foreignKeyHidden="true" prodata:nested="true" prodata:parent="ORDER_LINE" prodata:relationFields="lin_out_linenr,lin_out_linenr"/>
+          
+    </xsd:appinfo>
+      
+  </xsd:annotation>
+  
+</xsd:schema>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" version="V2R31_20250325">
+  	
+  <xs:annotation>
+    		
+    <xs:documentation>
+            Copyright 2000 - 2025 the Confederation of European Paper Industries AISBL ("papiNet") the "Copyright Owner". 
+            All rights reserved by the Copyright Owner under the laws of 
+            the United States, Belgium, the European Economic Community, and all states, domestic and foreign. 
+            For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.
+		</xs:documentation>
+    	
+  </xs:annotation>
+  
+  <xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+  	
+  <xs:element name="OrderStatus">
+    		
+    <xs:complexType>
+      			
+      <xs:sequence>
+        				
+        <xs:element ref="OrderStatusHeader"/>
+        				
+        <xs:element maxOccurs="unbounded" ref="OrderStatusDetail"/>
+        			
+      </xs:sequence>
+      			
+      <xs:attribute default="eng" name="Language" type="languageType"/>
+      			
+      <xs:attribute name="OrderStatusType" use="required">
+        				
+        <xs:simpleType>
+          					
+          <xs:restriction base="infoRequestDetailType">
+            						
+            <xs:enumeration value="ByProduct"/>
+            						
+            <xs:enumeration value="ByPurchaseOrder"/>
+            						
+            <xs:enumeration value="BySupplierOrderNumber"/>
+            					
+          </xs:restriction>
+          				
+        </xs:simpleType>
+        			
+      </xs:attribute>
+      		
+    </xs:complexType>
+    	
+  </xs:element>
+  
+</xs:schema>

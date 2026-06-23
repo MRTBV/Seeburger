@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeliveryMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.papinet.org/v2r31/DeliveryMessageV2R31.xsd" DeliveryMessageType="ShipmentAdvice" DeliveryMessageStatusType="Original">
+	<DeliveryMessageHeader>
+		<DeliveryMessageNumber>G260319-0001-001</DeliveryMessageNumber>
+		<TransactionHistoryNumber>117486997</TransactionHistoryNumber>
+		<DeliveryMessageDate>
+			<Date>
+				<Year>2026</Year>
+				<Month>03</Month>
+				<Day>19</Day>
+			</Date>
+			<Time>08:16:44</Time>
+		</DeliveryMessageDate>
+		<SenderParty PartyType="Forwarder">
+			<PartyIdentifier PartyIdentifierType="AssignedBySender">SCA_Logistics</PartyIdentifier>
+			<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879</PartyIdentifier>
+			<NameAddress>
+				<Name1>SCA Logistics</Name1>
+				<Address1>Box 805</Address1>
+				<City>SUNDSVALL</City>
+				<PostalCode>85123</PostalCode>
+				<Country ISOCountryCode="SE">SWEDEN</Country>
+			</NameAddress>
+		</SenderParty>
+		<ReceiverParty PartyType="Warehouse">
+			<PartyIdentifier PartyIdentifierType="AssignedBySender">Matrans</PartyIdentifier>
+			<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.3.1.1</PartyIdentifier>
+			<NameAddress>
+				<Name1>Matrans Rotterdam Terminal B.V</Name1>
+				<Address1>STREEFWAALSEWEG 15, HAVEN 2810</Address1>
+				<City>PERNIS</City>
+				<PostalCode>3195</PostalCode>
+				<Country ISOCountryCode="NL">Netherlands</Country>
+			</NameAddress>
+		</ReceiverParty>
+		<ShipToCharacteristics>
+			<ShipToParty PartyType="Warehouse">
+				<PartyIdentifier PartyIdentifierType="AssignedBySeller">23</PartyIdentifier>
+				<PartyIdentifier PartyIdentifierType="AssignedBySender">ROT</PartyIdentifier>
+				<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.3.1.1</PartyIdentifier>
+				<NameAddress>
+					<Name1>Matrans Rotterdam Terminal B.V.</Name1>
+					<Address1>STREEFWAALSEWEG 15, HAVEN 2810</Address1>
+					<City>PERNIS</City>
+					<PostalCode>3195</PostalCode>
+					<Country ISOCountryCode="NL">NETHERLANDS</Country>
+				</NameAddress>
+			</ShipToParty>
+		</ShipToCharacteristics>
+		<DeliveryLeg>
+			<DeliveryLegSequenceNumber>1</DeliveryLegSequenceNumber>
+			<DeliveryOrigin>
+				<Date>
+					<Year>2026</Year>
+					<Month>03</Month>
+					<Day>19</Day>
+				</Date>
+				<Time>08:11:57</Time>
+				<LocationParty PartyType="Warehouse">
+					<PartyIdentifier PartyIdentifierType="AssignedBySender">KALLOFMSVM</PartyIdentifier>
+					<NameAddress>
+						<Name1>FMS VAN MOER</Name1>
+						<Address1>8: WH MAGAZIJN-VAN MOER RAIL</Address1>
+						<Address2>KRUIPIN - KAA 1147</Address2>
+						<City>KALLO</City>
+						<PostalCode>9130</PostalCode>
+						<Country ISOCountryCode="BE">BELGIUM</Country>
+					</NameAddress>
+				</LocationParty>
+			</DeliveryOrigin>
+			<TransportModeCharacteristics TransportModeType="Road"/>
+			<TransportVehicleCharacteristics TransportVehicleType="Truck">
+				<TransportVehicleIdentifier TransportVehicleIdentifierType="LicencePlateNumber">G260319-0001</TransportVehicleIdentifier>
+			</TransportVehicleCharacteristics>
+			<TransportUnitCharacteristics TransportUnitType="Trailer">
+				<TransportUnitIdentifier TransportUnitIdentifierType="TrailerID">Return</TransportUnitIdentifier>
+			</TransportUnitCharacteristics>
+			<DeliveryDestination>
+				<Date>
+					<Year>2026</Year>
+					<Month>03</Month>
+					<Day>19</Day>
+				</Date>
+				<Time>08:11:57</Time>
+				<LocationParty PartyType="Warehouse">
+					<PartyIdentifier PartyIdentifierType="AssignedBySeller">23</PartyIdentifier>
+					<PartyIdentifier PartyIdentifierType="AssignedBySender">ROT</PartyIdentifier>
+					<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.3.1.1</PartyIdentifier>
+					<NameAddress>
+						<Name1>Matrans Rotterdam Terminal B.V.</Name1>
+						<Address1>STREEFWAALSEWEG 15, HAVEN 2810</Address1>
+						<City>PERNIS</City>
+						<PostalCode>3195</PostalCode>
+						<Country ISOCountryCode="NL">NETHERLANDS</Country>
+					</NameAddress>
+				</LocationParty>
+			</DeliveryDestination>
+			<DeliveryLegReference DeliveryLegReferenceType="DropOffNumber">1</DeliveryLegReference>
+		</DeliveryLeg>
+	</DeliveryMessageHeader>
+	<DeliveryMessageLineItem>
+		<DeliveryMessageLineItemNumber>1</DeliveryMessageLineItemNumber>
+		<DeliveryMessageReference DeliveryMessageReferenceType="PackageMark" AssignedBy="Supplier">59952</DeliveryMessageReference>
+		<DeliveryMessageReference DeliveryMessageReferenceType="DeliveryMessageNumber" AssignedBy="Forwarder">ROTS260319001</DeliveryMessageReference>
+		<DeliveryMessageReference DeliveryMessageReferenceType="DeliveryMessageLineItemNumber" AssignedBy="Forwarder">1</DeliveryMessageReference>
+		<Product>
+			<ProductIdentifier ProductIdentifierType="BrandName" Agency="Supplier">SCA WHITE TOP</ProductIdentifier>
+			<ProductIdentifier ProductIdentifierType="Other" Agency="Forwarder">WT2200</ProductIdentifier>
+			<ProductIdentifier ProductIdentifierType="GradeCode" Agency="Supplier">2200</ProductIdentifier>
+			<ProductDescription>SCA WHITE TOP K</ProductDescription>
+			<Paper>
+				<PaperCharacteristics>
+					<BasisWeight ProductBasisSizeType="GramsPerSquareMeter">
+						<DetailValue UOM="GramsPerSquareMeter">135.0</DetailValue>
+					</BasisWeight>
+				</PaperCharacteristics>
+				<Reel>
+					<ReelConversionCharacteristics>
+						<ReelWidth>
+							<Value UOM="Millimeter">1070</Value>
+						</ReelWidth>
+						<ReelDiameter>
+							<Value UOM="Millimeter">1250</Value>
+						</ReelDiameter>
+					</ReelConversionCharacteristics>
+				</Reel>
+			</Paper>
+		</Product>
+		<InventoryClass InventoryOwnedBy="Seller"/>
+		<NumberOfPackages>2</NumberOfPackages>
+		<Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+			<Value UOM="Kilogram">2440</Value>
+		</Quantity>
+		<InformationalQuantity QuantityType="NetWeight" QuantityTypeContext="Delivered">
+			<Value UOM="Kilogram">0</Value>
+		</InformationalQuantity>
+		<TransportLoadingCharacteristics TransportLoadingType="Standing">
+			<TransportLoadingText>Standing</TransportLoadingText>
+		</TransportLoadingCharacteristics>
+		<MillCharacteristics>
+			<MillParty>
+				<PartyIdentifier PartyIdentifierType="AssignedBySender">MUNKSUND</PartyIdentifier>
+				<NameAddress>
+					<Name1>SCA Packaging Munksund</Name1>
+					<Name2>Munksundsvägen</Name2>
+					<City>PITEÅ</City>
+					<PostalCode>94187</PostalCode>
+					<Country ISOCountryCode="SE">SWEDEN</Country>
+				</NameAddress>
+			</MillParty>
+		</MillCharacteristics>
+		<StatisticalGoodsInformation>
+			<CommodityGoodsCode Agency="Intrastat">48041919</CommodityGoodsCode>
+		</StatisticalGoodsInformation>
+		<PackageInformation PackageType="ReelPackage">
+			<Identifier IdentifierCodeType="Supplier" IdentifierType="Primary">20253826181842</Identifier>
+			<Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20253826181842</Identifier>
+			<SupplierMarks>59952</SupplierMarks>
+			<ItemCount>
+				<Value UOM="Reel">1</Value>
+			</ItemCount>
+			<Quantity QuantityType="GrossWeight">
+				<Value UOM="Kilogram">1224</Value>
+			</Quantity>
+			<InventoryClass InventoryStatusType="Sound" InventoryOwnedBy="Seller"/>
+			<ReelItem>
+				<Identifier IdentifierCodeType="Supplier" IdentifierType="Primary">20253826181842</Identifier>
+				<Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20253826181842</Identifier>
+				<DeliveryMessageReelCharacteristics>
+					<ReelLength>
+						<Value UOM="Meter">8496</Value>
+					</ReelLength>
+				</DeliveryMessageReelCharacteristics>
+				<Quantity QuantityType="GrossWeight">
+					<Value UOM="Kilogram">1224</Value>
+				</Quantity>
+			</ReelItem>
+		</PackageInformation>
+		<PackageInformation PackageType="ReelPackage">
+			<Identifier IdentifierCodeType="Supplier" IdentifierType="Primary">20253826151842</Identifier>
+			<Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20253826151842</Identifier>
+			<SupplierMarks>59952</SupplierMarks>
+			<ItemCount>
+				<Value UOM="Reel">1</Value>
+			</ItemCount>
+			<Quantity QuantityType="GrossWeight">
+				<Value UOM="Kilogram">1216</Value>
+			</Quantity>
+			<InventoryClass InventoryStatusType="Sound" InventoryOwnedBy="Seller"/>
+			<ReelItem>
+				<Identifier IdentifierCodeType="Supplier" IdentifierType="Primary">20253826151842</Identifier>
+				<Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20253826151842</Identifier>
+				<DeliveryMessageReelCharacteristics>
+					<ReelLength>
+						<Value UOM="Meter">8444</Value>
+					</ReelLength>
+				</DeliveryMessageReelCharacteristics>
+				<Quantity QuantityType="GrossWeight">
+					<Value UOM="Kilogram">1216</Value>
+				</Quantity>
+			</ReelItem>
+		</PackageInformation>
+	</DeliveryMessageLineItem>
+	<DeliveryMessageSummary>
+		<TotalNumberOfLineItems>1</TotalNumberOfLineItems>
+		<TotalQuantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+			<Value UOM="Kilogram">2440</Value>
+		</TotalQuantity>
+		<TotalInformationalQuantity QuantityType="Count" QuantityTypeContext="Delivered">
+			<Value UOM="Package">2</Value>
+		</TotalInformationalQuantity>
+	</DeliveryMessageSummary>
+</DeliveryMessage>

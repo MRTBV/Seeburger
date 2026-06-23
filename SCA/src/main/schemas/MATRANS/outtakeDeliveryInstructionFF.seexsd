@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.seeburger.com/SCA/outtakeDeliveryInstructionFF" xmlns:bic="http://www.seeburger.com/bicng/lang/schema/" xmlns:dsv="http://www.seeburger.com/bicng/lang/schema/dsv" xmlns:xsd="http://www.w3.org/2001/XMLSchema" bic:messageType="CSV" elementFormDefault="qualified" targetNamespace="http://www.seeburger.com/SCA/outtakeDeliveryInstructionFF">
+  <xsd:import namespace="http://www.seeburger.com/bicng/lang/schema/dsv" schemaLocation="platform:/plugin/com.seeburger.bicng.lang.schema.facade.dsv/resources/dsv.xsd"/>
+  <xsd:element name="outtakeDeliveryInstructionFF">
+    <xsd:annotation>
+      <xsd:appinfo source="http://www.seeburger.com/bicng/lang/schema/">
+        <maskingCharacter xmlns="http://www.seeburger.com/bicng/lang/schema/dsv">"</maskingCharacter>
+        <quotingMode xmlns="http://www.seeburger.com/bicng/lang/schema/dsv">QUOTING</quotingMode>
+        <elementDelimiter xmlns="http://www.seeburger.com/bicng/lang/schema/dsv">	</elementDelimiter>
+        <hasHeader xmlns="http://www.seeburger.com/bicng/lang/schema/dsv">true</hasHeader>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:complexContent>
+        <xsd:extension base="dsv:CSVMessageRoot">
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="header">
+              <xsd:complexType>
+                <xsd:complexContent>
+                  <xsd:extension base="dsv:CSVSegment">
+                    <xsd:sequence>
+                      <xsd:element default="out_ordnr" maxOccurs="1" minOccurs="1" name="out_ordnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="out_ordnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="statuscode" maxOccurs="1" minOccurs="1" name="statuscode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="statuscode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="rec_addressnr" maxOccurs="1" minOccurs="1" name="rec_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="rec_addressnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="transportnr" maxOccurs="1" minOccurs="1" name="transportnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="transportnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="cur_loc_description" maxOccurs="1" minOccurs="1" name="cur_loc_description">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="cur_loc_description"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="outtake_instructions" maxOccurs="1" minOccurs="1" name="outtake_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="outtake_instructions"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="remarks_internal" maxOccurs="1" minOccurs="1" name="remarks_internal">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="remarks_internal"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="cur_location_id" maxOccurs="1" minOccurs="1" name="cur_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="cur_location_id"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_loading" maxOccurs="1" minOccurs="1" name="dt_loading">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_loading"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="tim_loading" maxOccurs="1" minOccurs="1" name="tim_loading">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="tim_loading"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_address" maxOccurs="1" minOccurs="1" name="delivery_address">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_address"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_addressnr" maxOccurs="1" minOccurs="1" name="delivery_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_addressnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="inv_groupcode" maxOccurs="1" minOccurs="1" name="inv_groupcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="inv_groupcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="containernr" maxOccurs="1" minOccurs="1" name="containernr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="containernr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="container_typecode" maxOccurs="1" minOccurs="1" name="container_typecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="container_typecode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="projectnr" maxOccurs="1" minOccurs="1" name="projectnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="projectnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="out_customscode" maxOccurs="1" minOccurs="1" name="out_customscode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="out_customscode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_open_outtake_order" maxOccurs="1" minOccurs="1" name="ind_open_outtake_order">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_open_outtake_order"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="intake_transportnr" maxOccurs="1" minOccurs="1" name="intake_transportnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="intake_transportnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="prodref1" maxOccurs="1" minOccurs="1" name="prodref1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="prodref1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="prodref2" maxOccurs="1" minOccurs="1" name="prodref2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="prodref2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="prodref3" maxOccurs="1" minOccurs="1" name="prodref3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="prodref3"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="prodref4" maxOccurs="1" minOccurs="1" name="prodref4">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="prodref4"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="prodref5" maxOccurs="1" minOccurs="1" name="prodref5">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="prodref5"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="productgroupcode" maxOccurs="1" minOccurs="1" name="productgroupcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="productgroupcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="productsubgroupcode" maxOccurs="1" minOccurs="1" name="productsubgroupcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="productsubgroupcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="product_id" maxOccurs="1" minOccurs="1" name="product_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="product_id"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="cust_productcode" maxOccurs="1" minOccurs="1" name="cust_productcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="cust_productcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="outer_pck" maxOccurs="1" minOccurs="1" name="outer_pck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="outer_pck"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="inner_pck" maxOccurs="1" minOccurs="1" name="inner_pck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="inner_pck"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="blocked_message" maxOccurs="1" minOccurs="1" name="blocked_message">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="blocked_message"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_blocked" maxOccurs="1" minOccurs="1" name="ind_blocked">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_blocked"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_warning" maxOccurs="1" minOccurs="1" name="ind_warning">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_warning"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="open_outtake_carrier" maxOccurs="1" minOccurs="1" name="open_outtake_carrier">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="open_outtake_carrier"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="linecode" maxOccurs="1" minOccurs="1" name="linecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="linecode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out1" maxOccurs="1" minOccurs="1" name="custref_out1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out2" maxOccurs="1" minOccurs="1" name="custref_out2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out3" maxOccurs="1" minOccurs="1" name="custref_out3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out3"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_in1" maxOccurs="1" minOccurs="1" name="custref_in1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_in1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_in2" maxOccurs="1" minOccurs="1" name="custref_in2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_in2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_in3" maxOccurs="1" minOccurs="1" name="custref_in3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_in3"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="supplier_addressnr" maxOccurs="1" minOccurs="1" name="supplier_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="supplier_addressnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="destination_countrycode" maxOccurs="1" minOccurs="1" name="destination_countrycode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="destination_countrycode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="fw_shipmentnr" maxOccurs="1" minOccurs="1" name="fw_shipmentnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="fw_shipmentnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_create_fw_shipment" maxOccurs="1" minOccurs="1" name="ind_create_fw_shipment">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_create_fw_shipment"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="fwcode" maxOccurs="1" minOccurs="1" name="fwcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="fwcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="fin_dossiernr" maxOccurs="1" minOccurs="1" name="fin_dossiernr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="fin_dossiernr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_scan_per_line" maxOccurs="1" minOccurs="1" name="ind_scan_per_line">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_scan_per_line"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_delivery" maxOccurs="1" minOccurs="1" name="dt_delivery">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_delivery"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_excise_duty" maxOccurs="1" minOccurs="1" name="ind_excise_duty">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_excise_duty"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_vat_duty" maxOccurs="1" minOccurs="1" name="ind_vat_duty">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_vat_duty"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="transporter_addressnr" maxOccurs="1" minOccurs="1" name="transporter_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="transporter_addressnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="tim_delivery" maxOccurs="1" minOccurs="1" name="tim_delivery">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="tim_delivery"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="docnr_agd" maxOccurs="1" minOccurs="1" name="docnr_agd">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="docnr_agd"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="docnr_vat" maxOccurs="1" minOccurs="1" name="docnr_vat">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="docnr_vat"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_docnr_agd" maxOccurs="1" minOccurs="1" name="dt_docnr_agd">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_docnr_agd"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_docnr_vat" maxOccurs="1" minOccurs="1" name="dt_docnr_vat">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_docnr_vat"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="shipped_carrier" maxOccurs="1" minOccurs="1" name="shipped_carrier">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="shipped_carrier"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out4" maxOccurs="1" minOccurs="1" name="custref_out4">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out4"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out5" maxOccurs="1" minOccurs="1" name="custref_out5">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out5"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out6" maxOccurs="1" minOccurs="1" name="custref_out6">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out6"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out7" maxOccurs="1" minOccurs="1" name="custref_out7">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out7"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="custref_out8" maxOccurs="1" minOccurs="1" name="custref_out8">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="custref_out8"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="cmr_instructions" maxOccurs="1" minOccurs="1" name="cmr_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="cmr_instructions"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="outtake_instructions2" maxOccurs="1" minOccurs="1" name="outtake_instructions2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="outtake_instructions2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dealt_by_usercode" maxOccurs="1" minOccurs="1" name="dealt_by_usercode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dealt_by_usercode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="external_reference" maxOccurs="1" minOccurs="1" name="external_reference">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="external_reference"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="external_line_reference" maxOccurs="1" minOccurs="1" name="external_line_reference">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="external_line_reference"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ext_update_reference" maxOccurs="1" minOccurs="1" name="ext_update_reference">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ext_update_reference"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="sealno" maxOccurs="1" minOccurs="1" name="sealno">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="sealno"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_picking" maxOccurs="1" minOccurs="1" name="dt_picking">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_picking"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="tim_picking" maxOccurs="1" minOccurs="1" name="tim_picking">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="tim_picking"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="trailer" maxOccurs="1" minOccurs="1" name="trailer">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="trailer"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="fisc_addressnr" maxOccurs="1" minOccurs="1" name="fisc_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="fisc_addressnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="in_fiscalcode" maxOccurs="1" minOccurs="1" name="in_fiscalcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="in_fiscalcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="out_fiscalcode" maxOccurs="1" minOccurs="1" name="out_fiscalcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="out_fiscalcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="open_outtake_outer_pck" maxOccurs="1" minOccurs="1" name="open_outtake_outer_pck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="open_outtake_outer_pck"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ext_edi_order_text" maxOccurs="1" minOccurs="1" name="ext_edi_order_text">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ext_edi_order_text"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="in_projectnr" maxOccurs="1" minOccurs="1" name="in_projectnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="in_projectnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_contact" maxOccurs="1" minOccurs="1" name="delivery_contact">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_contact"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_name" maxOccurs="1" minOccurs="1" name="delivery_name">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_name"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_departure" maxOccurs="1" minOccurs="1" name="dt_departure">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_departure"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="tim_departure" maxOccurs="1" minOccurs="1" name="tim_departure">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="tim_departure"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dock_location_id" maxOccurs="1" minOccurs="1" name="dock_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dock_location_id"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_loadtruck" maxOccurs="1" minOccurs="1" name="ind_loadtruck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_loadtruck"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="via1_location_id" maxOccurs="1" minOccurs="1" name="via1_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="via1_location_id"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="via2_location_id" maxOccurs="1" minOccurs="1" name="via2_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="via2_location_id"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="via3_location_id" maxOccurs="1" minOccurs="1" name="via3_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="via3_location_id"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="loading_sequence" maxOccurs="1" minOccurs="1" name="loading_sequence">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="loading_sequence"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_instructions" maxOccurs="1" minOccurs="1" name="delivery_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_instructions"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="loading_instructions" maxOccurs="1" minOccurs="1" name="loading_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="loading_instructions"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_boxpick" maxOccurs="1" minOccurs="1" name="ind_boxpick">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_boxpick"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ind_send_edi" maxOccurs="1" minOccurs="1" name="ind_send_edi">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ind_send_edi"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="loc_terminalcode" maxOccurs="1" minOccurs="1" name="loc_terminalcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="loc_terminalcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_ready_before" maxOccurs="1" minOccurs="1" name="dt_ready_before">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_ready_before"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="tim_ready_before" maxOccurs="1" minOccurs="1" name="tim_ready_before">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="tim_ready_before"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="fw_dossiernr" maxOccurs="1" minOccurs="1" name="fw_dossiernr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="fw_dossiernr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="preadvise_out_ordnr" maxOccurs="1" minOccurs="1" name="preadvise_out_ordnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="preadvise_out_ordnr"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="dt_delivery_to" maxOccurs="1" minOccurs="1" name="dt_delivery_to">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="dt_delivery_to"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="tim_delivery_to" maxOccurs="1" minOccurs="1" name="tim_delivery_to">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="tim_delivery_to"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="vehicletypecode" maxOccurs="1" minOccurs="1" name="vehicletypecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="vehicletypecode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="out_typecode" maxOccurs="1" minOccurs="1" name="out_typecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="out_typecode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_email" maxOccurs="1" minOccurs="1" name="delivery_email">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_email"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_phone" maxOccurs="1" minOccurs="1" name="delivery_phone">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_phone"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="delivery_zipcode" maxOccurs="1" minOccurs="1" name="delivery_zipcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="delivery_zipcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="deposit_ownercode" maxOccurs="1" minOccurs="1" name="deposit_ownercode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="deposit_ownercode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="email_cc" maxOccurs="1" minOccurs="1" name="email_cc">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="email_cc"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="termcode" maxOccurs="1" minOccurs="1" name="termcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="termcode"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="term_place" maxOccurs="1" minOccurs="1" name="term_place">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="term_place"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="xrefPickOrder" maxOccurs="1" minOccurs="1" name="xrefPickOrder">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="xrefPickOrder"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="xrefActivityLeadTime" maxOccurs="1" minOccurs="1" name="xrefActivityLeadTime">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="xrefActivityLeadTime"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="edi_out_line_1" maxOccurs="1" minOccurs="1" name="edi_out_line_1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="edi_out_line_1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="edi_out_line_2" maxOccurs="1" minOccurs="1" name="edi_out_line_2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="edi_out_line_2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="edi_out_line_3" maxOccurs="1" minOccurs="1" name="edi_out_line_3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="edi_out_line_3"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ord_edi_out_ord_1" maxOccurs="1" minOccurs="1" name="ord_edi_out_ord_1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ord_edi_out_ord_1"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="ord_edi_out_ord_2" maxOccurs="1" minOccurs="1" name="ord_edi_out_ord_2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="ord_edi_out_ord_2"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element default="H" maxOccurs="1" minOccurs="1" name="H">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR">
+                            <xsd:enumeration value="H"/>
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                    </xsd:sequence>
+                  </xsd:extension>
+                </xsd:complexContent>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="record">
+              <xsd:complexType>
+                <xsd:complexContent>
+                  <xsd:extension base="dsv:CSVSegment">
+                    <xsd:sequence>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="out_ordnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="statuscode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="rec_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="transportnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="cur_loc_description">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="outtake_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="remarks_internal">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="cur_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="dt_loading">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="tim_loading">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_address">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="delivery_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="inv_groupcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="containernr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="container_typecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="projectnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="out_customscode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_open_outtake_order">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="intake_transportnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="prodref1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="prodref2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="prodref3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="prodref4">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="prodref5">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="productgroupcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="productsubgroupcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="product_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="cust_productcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="outer_pck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="inner_pck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="blocked_message">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_blocked">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_warning">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="open_outtake_carrier">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="linecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="custref_out1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="custref_in1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_in2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_in3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="supplier_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="destination_countrycode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="fw_shipmentnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_create_fw_shipment">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="fwcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="fin_dossiernr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_scan_per_line">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="dt_delivery">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_excise_duty">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_vat_duty">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="transporter_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="tim_delivery">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="docnr_agd">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="docnr_vat">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dt_docnr_agd">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dt_docnr_vat">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="shipped_carrier">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out4">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out5">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out6">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out7">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="custref_out8">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="cmr_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="outtake_instructions2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dealt_by_usercode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="external_reference">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="external_line_reference">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ext_update_reference">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="sealno">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dt_picking">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="tim_picking">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="trailer">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="fisc_addressnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="in_fiscalcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="out_fiscalcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="open_outtake_outer_pck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ext_edi_order_text">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="in_projectnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_contact">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_name">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dt_departure">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="tim_departure">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dock_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_loadtruck">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="via1_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="via2_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="via3_location_id">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="loading_sequence">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="loading_instructions">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_boxpick">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="ind_send_edi">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="loc_terminalcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="dt_ready_before">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="tim_ready_before">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="fw_dossiernr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="preadvise_out_ordnr">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="dt_delivery_to">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="tim_delivery_to">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="vehicletypecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="out_typecode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_email">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_phone">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="delivery_zipcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="deposit_ownercode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="email_cc">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="termcode">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="term_place">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="xrefPickOrder">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="xrefActivityLeadTime">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="edi_out_line_1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="edi_out_line_2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="0" name="edi_out_line_3">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="ord_edi_out_ord_1">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="ord_edi_out_ord_2">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:element maxOccurs="1" minOccurs="1" name="H">
+                        <xsd:simpleType>
+                          <xsd:restriction base="dsv:AN_VAR"/>
+                        </xsd:simpleType>
+                      </xsd:element>
+                    </xsd:sequence>
+                  </xsd:extension>
+                </xsd:complexContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

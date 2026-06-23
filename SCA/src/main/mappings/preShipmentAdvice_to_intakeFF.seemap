@@ -1,0 +1,120 @@
+(:
+preShipmentAdvice_to_intakeFF.seemap
+created at May 12, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "MATRANS/preShipmentAdvice.seexsd" as source;
+import schema default element namespace "http://www.seeburger.com/SCA/intakeFF" at "MATRANS/intakeFF.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+intakeFF
+{
+	header {
+		airdry_weight := 'airdry_weight'
+		barcode_id := 'barcode_id'
+		bill_of_ladingnr := 'bill_of_ladingnr'
+		brandcode := 'brandcode'
+		cargo_trailer_id := 'cargo_trailer_id'
+		carrier := 'carrier'
+		carriercode := 'carriercode'
+		container_typecode := 'container_typecode'
+		containernr := 'containernr'
+		core_diameter := 'core_diameter'
+		cust_addressnr := 'cust_addressnr'
+		cust_productcode := 'cust_productcode'
+		cust_statuscode := 'cust_statuscode'
+		customscode := 'customscode'
+		custref_in1 := 'custref_in1'
+		custref_in2 := 'custref_in2'
+		custref_in3 := 'custref_in3'
+		custref_in4 := 'custref_in4'
+		delivery_ref := 'delivery_ref'
+		destination := 'destination'
+		diameter := 'diameter'
+		dt_discharge := 'dt_discharge'
+		dt_production := 'dt_production'
+		edi_reference := 'edi_reference'
+		edi_line_reference := 'edi_line_reference'
+		edi_stock_1 := 'edi_stock_1'
+		edi_stock_2 := 'edi_stock_2'
+		edi_stock_3 := 'edi_stock_3'
+		edi_stock_4 := 'edi_stock_4'
+		edi_stock_5 := 'edi_stock_5'
+		eta := 'eta'
+		export_countrycode := 'export_countrycode'
+		extra_alfa1 := 'extra_alfa1'
+		extra_alfa2 := 'extra_alfa2'
+		extra_alfa3 := 'extra_alfa3'
+		extra_number1 := 'extra_number1'
+		extra_number2 := 'extra_number2'
+		extra_number3 := 'extra_number3'
+		external_reference := 'external_reference'
+		grammage := 'grammage'
+		grossweight := 'grossweight'
+		grossweightcode := 'grossweightcode'
+		height := 'height'
+		inner_pck := 'inner_pck'
+		inner_pckcode := 'inner_pckcode'
+		items_per_pack := 'items_per_pack'
+		length := 'length'
+		lotnumber := 'lotnumber'
+		nettweight := 'nettweight'
+		nettweightcode := 'nettweightcode'
+		origin_countrycode := 'origin_countrycode'
+		outer_pck := 'outer_pck'
+		outer_pckcode := 'outer_pckcode'
+		parcel_id := 'parcel_id'
+		packtypecode := 'packtypecode'
+		pol := 'pol'
+		product_id := 'product_id'
+		productgroupcode := 'productgroupcode'
+		productitemdescription := 'productitemdescription'
+		purchase_order := 'purchase_order'
+		qualitycode := 'qualitycode'
+		rec_addressnr := 'rec_addressnr'
+		remarks := 'remarks'
+		sales_order := 'sales_order'
+		sealno := 'sealno'
+		shipping_ref := 'shipping_ref'
+		sscc := 'sscc'
+		supplier_addressnr := 'supplier_addressnr'
+		term_place := 'term_place'
+		termcode := 'termcode'
+		trafficcode := 'trafficcode'
+		trafficref1 := 'trafficref1'
+		trafficref2 := 'trafficref2'
+		trafficref3 := 'trafficref3'
+		transport_id := 'transport_id'
+		voyage := 'voyage'
+		warehouseref := 'warehouseref'
+		width := 'width'
+		custref_in5 := 'custref_in5'
+		custref_in6 := 'custref_in6'
+		custref_in7 := 'custref_in7'
+		H := 'H'
+	}
+	@suppressCodeValidation("INVALID_FUNCTION_ARGUMENT_TYPES")
+	record <- /Envelope/transport/subleg/sublegtu/transportunit
+	{
+		custref_in1 := transportorder/transportorderline/packagemark/packagemarkreference
+		custref_in2 := ../../../../stingmainobjectreference
+		dt_discharge := format-date(eta,'yyyy-MM-dd HH:mm:ss','dd-MM-yyyy')
+		edi_stock_1 := transportunitplanreference
+		edi_stock_2 := transportorder/reference
+		edi_stock_3 := transportorder/transportorderline/lineitemnumber
+		extra_alfa1 := ../../../../transport/transportvehicletype/code
+		grossweight := transportorder/transportorderline/plannedweight
+		outer_pck := transportorder/transportorderline/plannedamount
+		product_id := transportorder/transportorderline/packagemark/product/code
+		supplier_addressnr := transportorder/transportorderline/packagemark/mill/code
+		transport_id := transportunitplanreference || '-' || transportorder/reference
+		custref_in5 := substring(../../../../transport/nexttransport,7,3)
+		custref_in7 := transportunitreference
+		H := 'D'
+		
+		
+		
+		
+		
+	}
+}

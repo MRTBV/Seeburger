@@ -1,0 +1,73 @@
+(:
+deliveryInstruction_to_businessAcknowledgement.seemap
+created at May 13, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "papiNet/DeliveryInstructionV2R31.seexsd" as source;
+import schema default element namespace "" at "MATRANS/businessAcknowledgement.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+(: This option suppresses the creation of empty nodes. 
+ * A node is not empty if it is a primitive node with a value or if it contains a non-empty child node.
+:)
+@opt("skip.empty")
+BusinessAcknowledgement <- /DeliveryInstruction
+{   
+	@Status := 'Success'
+	BusinessAcknowledgementNumber := generateUUID()
+	BusinessAcknowledgementDate {
+		Date {
+			Year := format-date(current-dateTime(),'yyyy')
+			Month := format-date(current-dateTime(),'MM')
+			Day := format-date(current-dateTime(),'dd')
+		}
+	}
+	Document {
+		@DocumentName := 'DeliveryInstruction'
+		DocumentNumber := DeliveryInstructionHeader/DeliveryInstructionNumber
+		DocumentDate {
+			Date {
+				Year := DeliveryInstructionHeader/DeliveryInstructionDate/Date/Year
+				Month := DeliveryInstructionHeader/DeliveryInstructionDate/Date/Month
+				Day := DeliveryInstructionHeader/DeliveryInstructionDate/Date/Day
+			}
+			Time := DeliveryInstructionHeader/DeliveryInstructionDate/Time || '.000+1:00'
+		}
+	}
+	TransactionHistoryNumber := nextCounter('MRT-COUNTER-SCA-BUSINESSACKNOWLEDGEMENT')
+	Error {
+		ErrorCode := 0
+		ErrorDescription := 'No errors'
+	}
+	SenderParty { 
+		@PartyType := 'Forwarder'
+		PartyIdentifier {
+			@PartyIdentifierType := 'papiNetGlobalPartyIdentifier'
+			text() := '1.3.6.1.4.1.16879'
+		}
+		NameAddress {
+			Name1 := 'Matrans Rotterdam Terminal B.V.'
+			Address1 := 'Streefwaalseweg 15'
+			City := 'Rotterdam-Pernis'
+			PostalCode := '3195 KN'
+			Country {
+				@ISOCountryCode := 'NL'
+				text() := 'Netherlands'
+			}
+		}
+		
+	}
+	ReceiverParty {
+		@PartyType := 'Supplier'
+		NameAddress {
+			Name1 := 'SCA Logistics'
+			Address1 := 'Box 805'
+			City := 'SUNDSVALL'
+			PostalCode := '85123'
+			Country {
+				@ISOCountryCode := 'SE'
+				text() := 'Sweden'
+			}
+		}
+	}
+}

@@ -1,0 +1,178 @@
+ (:
+deliveryInstruction_to_outtakeDeliveryFF.seemap
+created at May 12, 2026 by r.hilberts
+:)
+ import schema default element namespace "" at "papiNet/DeliveryInstructionV2R31.seexsd" as source;
+ import schema default element namespace "http://www.seeburger.com/SCA/outtakeDeliveryInstructionFF" at "MATRANS/outtakeDeliveryInstructionFF.seexsd" as target;
+
+ declare option parser.input.document.namefilter "mapping:main-source-document";
+
+outtakeDeliveryInstructionFF 
+{   
+	header {
+		out_ordnr := 'out_ordnr'
+		statuscode := 'statuscode'
+		rec_addressnr := 'rec_addressnr'
+		transportnr := 'transportnr'
+		cur_loc_description := 'cur_loc_description'
+		outtake_instructions := 'outtake_instructions'
+		remarks_internal := 'remarks_internal'
+		cur_location_id := 'cur_location_id'
+		dt_loading := 'dt_loading'
+		tim_loading := 'tim_loading'
+		delivery_address := 'delivery_address'
+		delivery_addressnr := 'delivery_addressnr'
+		inv_groupcode := 'inv_groupcode'
+		containernr := 'containernr'
+		container_typecode := 'container_typecode'
+		projectnr := 'projectnr'
+		out_customscode := 'out_customscode'
+		ind_open_outtake_order := 'ind_open_outtake_order'
+		intake_transportnr := 'intake_transportnr'
+		prodref1 := 'prodref1'
+		prodref2 := 'prodref2'
+		prodref3 := 'prodref3'
+		prodref4 := 'prodref4'
+		prodref5 := 'prodref5'
+		productgroupcode := 'productgroupcode'
+		productsubgroupcode := 'productsubgroupcode'
+		product_id := 'product_id'
+		cust_productcode := 'cust_productcode'
+		outer_pck := 'outer_pck'
+		inner_pck := 'inner_pck'
+		blocked_message := 'blocked_message'
+		ind_blocked := 'ind_blocked'
+		ind_warning := 'ind_warning'
+		open_outtake_carrier := 'open_outtake_carrier'
+		linecode := 'linecode'
+		custref_out1 := 'custref_out1'
+		custref_out2 := 'custref_out2'
+		custref_out3 := 'custref_out3'
+		custref_in1 := 'custref_in1'
+		custref_in2 := 'custref_in2'
+		custref_in3 := 'custref_in3'
+		supplier_addressnr := 'supplier_addressnr'
+		destination_countrycode := 'destination_countrycode'
+		fw_shipmentnr := 'fw_shipmentnr'
+		ind_create_fw_shipment := 'ind_create_fw_shipment'
+		fwcode := 'fwcode'
+		fin_dossiernr := 'fin_dossiernr'
+		ind_scan_per_line := 'ind_scan_per_line'
+		dt_delivery := 'dt_delivery'
+		ind_excise_duty := 'ind_excise_duty'
+		ind_vat_duty := 'ind_vat_duty'
+		transporter_addressnr := 'transporter_addressnr'
+		tim_delivery := 'tim_delivery'
+		docnr_agd := 'docnr_agd'
+		docnr_vat := 'docnr_vat'
+		dt_docnr_agd := 'dt_docnr_agd'
+		dt_docnr_vat := 'dt_docnr_vat'
+		shipped_carrier := 'shipped_carrier'
+		custref_out4 := 'custref_out4'
+		custref_out5 := 'custref_out5'
+		custref_out6 := 'custref_out6'
+		custref_out7 := 'custref_out7'
+		custref_out8 := 'custref_out8'
+		cmr_instructions := 'cmr_instructions'
+		outtake_instructions2 := 'outtake_instructions2'
+		dealt_by_usercode := 'dealt_by_usercode'
+		external_reference := 'external_reference'
+		external_line_reference := 'external_line_reference'
+		ext_update_reference := 'ext_update_reference'
+		sealno := 'sealno'
+		dt_picking := 'dt_picking'
+		tim_picking := 'tim_picking'
+		trailer := 'trailer'
+		fisc_addressnr := 'fisc_addressnr'
+		in_fiscalcode := 'in_fiscalcode'
+		out_fiscalcode := 'out_fiscalcode'
+		open_outtake_outer_pck := 'open_outtake_outer_pck'
+		ext_edi_order_text := 'ext_edi_order_text'
+		in_projectnr := 'in_projectnr'
+		delivery_contact := 'delivery_contact'
+		delivery_name := 'delivery_name'
+		dt_departure := 'dt_departure'
+		tim_departure := 'tim_departure'
+		dock_location_id := 'dock_location_id'
+		ind_loadtruck := 'ind_loadtruck'
+		via1_location_id := 'via1_location_id'
+		via2_location_id := 'via2_location_id'
+		via3_location_id := 'via3_location_id'
+		loading_sequence := 'loading_sequence'
+		delivery_instructions := 'delivery_instructions'
+		loading_instructions := 'loading_instructions'
+		ind_boxpick := 'ind_boxpick'
+		ind_send_edi := 'ind_send_edi'
+		loc_terminalcode := 'loc_terminalcode'
+		dt_ready_before := 'dt_ready_before'
+		tim_ready_before := 'tim_ready_before'
+		fw_dossiernr := 'fw_dossiernr'
+		preadvise_out_ordnr := 'preadvise_out_ordnr'
+		dt_delivery_to := 'dt_delivery_to'
+		tim_delivery_to := 'tim_delivery_to'
+		vehicletypecode := 'vehicletypecode'
+		out_typecode := 'out_typecode'
+		delivery_email := 'delivery_email'
+		delivery_phone := 'delivery_phone'
+		delivery_zipcode := 'delivery_zipcode'
+		deposit_ownercode := 'deposit_ownercode'
+		email_cc := 'email_cc'
+		termcode := 'termcode'
+		term_place := 'term_place'
+		xrefPickOrder := 'xrefPickOrder'
+		xrefActivityLeadTime := 'xrefActivityLeadTime'
+		edi_out_line_1 := 'edi_out_line_1'
+		edi_out_line_2 := 'edi_out_line_2'
+		edi_out_line_3 := 'edi_out_line_3'
+		ord_edi_out_ord_1 := 'ord_edi_out_ord_1'
+		ord_edi_out_ord_2 := 'ord_edi_out_ord_2'
+		H := 'H'
+	}
+		record <- /DeliveryInstruction/DeliveryInstructionSequence/DeliveryInstructionSequenceLineItem/Product {
+		rec_addressnr := ../../../DeliveryInstructionHeader/SenderParty[@PartyType = 'Forwarder']/NameAddress/Name1
+		outtake_instructions := normalize-space(string-join(../../DeliveryLeg/TransportOtherInstructions/TransportInstructionText,' '))
+		dt_loading := ../../DeliveryLeg/DeliveryDestination/Date/Day || ../../DeliveryLeg/DeliveryDestination/Date/Month || ../../DeliveryLeg/DeliveryDestination/Date/Year
+		tim_loading := ../../DeliveryLeg/DeliveryDestination/Time
+		delivery_addressnr := 'SCA' || ../../../DeliveryInstructionSequence/ShipToCharacteristics/ShipToParty/PartyIdentifier[@PartyIdentifierType = 'AssignedBySeller']
+		container_typecode := ../../../DeliveryInstructionSequence/DeliveryLeg/TransportUnitCharacteristics/TransportUnitText
+		if(exists(Paper/Reel/ReelConversionCharacteristics/ReelDiameter)) {
+			prodref1 :=  Paper/Reel/ReelConversionCharacteristics/ReelDiameter
+		}
+		
+		if(exists(Pulp/Bale/BaleConversionCharacteristics/BaleDepth/Value)) {
+			prodref1 :=  /Pulp/Bale/BaleConversionCharacteristics/BaleDepth/Value
+		}
+		if(exists(Paper/Reel/ReelConversionCharacteristics/ReelWidth)) {
+			prodref2 :=  Paper/Reel/ReelConversionCharacteristics/ReelWidth
+			
+		}
+		if(exists(Pulp/Bale/BaleConversionCharacteristics/BaleWidth/Value)) {
+			prodref2 :=  Pulp/Bale/BaleConversionCharacteristics/BaleWidth/Value
+		}
+		(:prodref3 :=  ../../../DeliveryInstructionSequence/DeliveryInstructionSequenceLineItem/Product/Pulp/Bale/BaleConversionCharacteristics/BaleHeight/Value:)
+		prodref3 :=  Pulp/Bale/BaleConversionCharacteristics/BaleHeight/Value
+		prodref4 := Paper/PaperCharacteristics/BasisWeight/DetailValue
+		product_id := ProductIdentifier[@Agency = 'Forwarder'][@ProductIdentifierType = 'Other']
+		outer_pck :=  ../NumberOfPackages
+		custref_out1 := ../../../DeliveryInstructionHeader/DeliveryInstructionNumber
+		custref_in1 := ../DeliveryInstructionReference[@DeliveryInstructionReferenceType = 'PackageMark'][@AssignedBy = 'Supplier' or @AssignedBy = 'Seller']
+		supplier_addressnr := ../MillParty/PartyIdentifier[@PartyIdentifierType = 'AssignedBySender']
+		dt_delivery := ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeFrom/Date/Day || ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeFrom/Date/Month || ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeFrom/Date/Year
+		tim_delivery := ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeFrom/Time
+		loading_instructions := normalize-space(string-join(../TransportLoadingCharacteristics/TransportLoadingText,', '))
+		dt_delivery_to := ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeTo/Date/Day || ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeTo/Date/Month || ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeTo/Date/Year
+		tim_delivery_to := ../../DeliveryLeg/DeliveryDateWindow[@DeliveryDateType = 'EstimatedTimeOfArrival']/DateTimeRange/DateTimeTo/Time
+		vehicletypecode := ../../../DeliveryInstructionSequence/DeliveryLeg/TransportUnitCharacteristics/@TransportUnitType
+		termcode := ../../../DeliveryInstructionSequence/ShipToCharacteristics/TermsOfDelivery/IncotermsLocation/@Incoterms
+		term_place := ../../../DeliveryInstructionSequence/ShipToCharacteristics/TermsOfDelivery/IncotermsLocation
+		edi_out_line_1 := ../DeliveryInstructionSequenceLineItemNumber
+		edi_out_line_2 := ../../DeliveryInstructionSequenceNumber
+		ord_edi_out_ord_1 := ../../../DeliveryInstructionHeader/OtherParty[@PartyType = 'OnBehalfOf']/PartyIdentifier[@PartyIdentifierType = 'AssignedBySender']
+		ord_edi_out_ord_2 := ../../../DeliveryInstructionHeader/OtherParty[@PartyType = 'OnBehalfOf']/NameAddress/Name1
+		H := 'D'
+		
+		
+	}
+	
+
+}

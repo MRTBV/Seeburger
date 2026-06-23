@@ -1,0 +1,256 @@
+(:
+shippingConfirmation_to_GoodsReceipt.seemap
+created at May 12, 2026 by r.hilberts
+:)
+import schema default element namespace "http://www.seeburger.com/SCA/shippingConfirmationFF" at "MATRANS/shippingConfirmationFF.seexsd" as source;
+import schema default element namespace "" at "papiNet/GoodsReceiptV2R31.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+
+
+GoodsReceipt <- /shippingConfirmationFF
+ 
+{
+		doc("mapping:output-parameters") {
+		GoodsReceiptFilename := 'GR_' || record[1]/wm_in_ord_in_ordnr || '-' || 
+						/shippingConfirmationFF/record[1]/wm_in_line_containernr || '-' ||
+						/shippingConfirmationFF/record[1]/wm_transport_transportunitcode || '-' ||
+						(:token-at-index(/shippingConfirmationFF/record[1]/wm_stock_edi_stock_1,'-',1) || '-' ||:)	
+						/shippingConfirmationFF/record[1]/wm_in_ord_vehicletypecode || '_' ||
+						generateUUID() || '.xml'
+	}
+
+	@GoodsReceiptStatusType := 'Original'
+	@GoodsReceiptAcceptance := 'GoodsReceivedAsSpecified'
+
+	GoodsReceiptHeader
+	{
+		(:GoodsReceiptNumber := /shippingConfirmationFF/record[1]/wm_in_ord_in_ordnr || '-' || /shippingConfirmationFF/record[1]/wm_in_ord_containernr:)
+		GoodsReceiptNumber := /shippingConfirmationFF/record[1]/wm_in_ord_in_ordnr || '-' || record[1]/wm_stock_containernr
+		
+		GoodsReceiptIssueDate
+		{
+			Date
+			{
+				Year := format-date(current-dateTime(), 'yyyy')
+				Month := format-date(current-dateTime(), 'MM')
+				Day := format-date(current-dateTime(), 'dd')
+			}
+			Time := format-date(current-dateTime(), 'HH:mm:ss')
+		}
+		TransactionHistoryNumber := nextCounter("MRT-COUNTER-SCA-GOODSRECEIPT")
+		GoodsReceiptArrivalDate
+		{
+			Date
+			{
+				Year := format-date(current-dateTime(), 'yyyy')
+				Month := format-date(current-dateTime(), 'MM')
+				Day := format-date(current-dateTime(), 'dd')
+			}
+			Time := format-date(current-dateTime(), 'HH:mm:ss')
+		}
+		GoodsReceiptUnloadDate
+		{
+			Date
+			{
+				Year := format-date(/shippingConfirmationFF/record[1]/wm_in_ord_dt_discharge, 'yyyy')
+				Month := format-date(/shippingConfirmationFF/record[1]/wm_in_ord_dt_discharge, 'MM')
+				Day := format-date(/shippingConfirmationFF/record[1]/wm_in_ord_dt_discharge, 'dd')
+			}
+		}
+		DeliveryMessageNumber := /shippingConfirmationFF/record[1]/wm_stock_edi_stock_1
+		DeliveryMessageDate
+		{
+			Date
+			{
+				Year := format-date(/shippingConfirmationFF/record[1]/wm_in_ord_dt_create, 'yyyy')
+				Month := format-date(/shippingConfirmationFF/record[1]/wm_in_ord_dt_create, 'MM')
+				Day := format-date(/shippingConfirmationFF/record[1]/wm_in_ord_dt_create, 'dd')
+			}
+		}
+		SenderParty
+		{
+			@PartyType := 'Warehouse'
+			PartyIdentifier
+			{
+				@PartyIdentifierType := 'AssignedBySender'
+				text() := 'MRT01'
+			}
+			NameAddress
+			{
+				Name1 := 'Matrans Rotterdam Terminal'
+			}
+		}
+		ReceiverParty
+		{
+			@PartyType := 'Forwarder'
+			PartyIdentifier
+			{
+				@PartyIdentifierType := 'AssignedBySender'
+				text() := 'SCA Logistics'
+			}
+			PartyIdentifier
+			{
+				@PartyIdentifierType := 'papiNetGlobalPartyIdentifier'
+				text() := '1.3.6.1.4.1.16879'
+			}
+			NameAddress
+			{
+				Name1 := 'SCA Logistics'
+			}
+		}
+		ShipToCharacteristics
+		{
+			ShipToParty
+			{
+				@PartyType := 'Warehouse'
+				PartyIdentifier
+				{
+					@PartyIdentifierType := 'AssignedBySender'
+					text() := 'ROT'
+				}
+				PartyIdentifier
+				{
+					@PartyIdentifierType := 'papiNetGlobalPartyIdentifier'
+					text() := '1.3.6.1.4.1.16879.3.1.1' 
+				}
+				NameAddress
+				{
+					Name1 := 'Matrans Rotterdam Terminal'
+					Address1 := 'Streefwaalseweg 15'
+					City := 'Pernis'
+					PostalCode
+					{
+						text() := '3195 KN'
+					}
+					Country
+					{
+						text() := 'Netherlands'
+					}
+				}
+			}
+		}
+	}
+
+
+
+GoodsReceiptLineItem <- $x in /shippingConfirmationFF/record   group by $desc := concat($x/wm_stock_edi_stock_2,$x/wm_stock_edi_stock_3)  count $groupCounter
+    {
+        (:@desc := $desc:)
+        (:@numItemSales := count($x):)
+        (:@groupCounter := $groupCounter:)
+
+        (:for $itemSale in $x
+        {
+            let $shop := ancestor::Shop
+            shop
+            {
+                @shopName := $shop/ShopAddress/Name
+                @quantitySold := $itemSale/Quantity
+            }
+        }:)
+        
+        
+        @GoodsReceiptAcceptance := 'GoodsReceivedAsSpecified'
+	GoodsReceiptLineItemNumber := $groupCounter
+			MillParty
+			{
+				PartyIdentifier
+				{
+					@PartyIdentifierType := 'AssignedByReceiver'
+					text() := $x[1]/wm_in_lin_supplier_shortname
+				}
+				NameAddress {
+					Name1 := $x[1]/wm_in_ord_lin_supplier_name_1
+				}
+			}
+			GoodsReceiptReference {
+				@GoodsReceiptReferenceType := 'PackageMark'
+				@AssignedBy := 'Supplier'
+				(:text() := $x[1]/wm_in_line_custref_in1:)
+				text() := $x[1]/wm_stock_prodref5
+			}
+			GoodsReceiptReference {
+				@GoodsReceiptReferenceType := 'DeliveryMessageLineItemNumber'
+				@AssignedBy := 'Forwarder'
+				text() := $x[1]/wm_stock_edi_stock_3
+			}
+			GoodsReceiptReference {
+				@GoodsReceiptReferenceType := 'DeliveryMessageNumber'
+				@AssignedBy := 'Forwarder'
+				text() := $x[1]/wm_stock_edi_stock_2
+			}
+			Quantity {
+				@QuantityType := 'GrossWeight'
+				Value {
+					@UOM := 'KiloGram'
+					(:text() := sum(../record/wm_stock_grossweight):)
+					text() := format-number(sum(//record[wm_stock_edi_stock_3 = $x/wm_stock_edi_stock_3]/wm_stock_grossweight),'#.0')
+				}
+			}
+			NumberOfGoodsReceiptPackages := sum(//record[wm_stock_edi_stock_3 = $x/wm_stock_edi_stock_3]/wm_stock_outer_pck)
+        
+        
+    }
+
+  	
+
+
+
+
+
+
+
+	
+	
+	
+	(:for $x at $index in record
+	{
+		
+	
+		GoodsReceiptLineItem
+		{
+			
+			@GoodsReceiptAcceptance := 'GoodsReceivedAsSpecified'
+			GoodsReceiptLineItemNumber := $index
+			MillParty
+			{
+				PartyIdentifier
+				{
+					@PartyIdentifierType := 'AssignedByReceiver'
+					text() := wm_in_lin_supplier_shortname
+				}
+				NameAddress {
+					Name1 := wm_in_ord_lin_supplier_name_1
+				}
+			}
+			GoodsReceiptReference {
+				@GoodsReceiptReferenceType := 'PackageMark'
+				@AssignedBy := 'Supplier'
+				text() := wm_in_line_custref_in1
+			}
+			GoodsReceiptReference {
+				@GoodsReceiptReferenceType := 'DeliveryMessageLineItemNumber'
+				@AssignedBy := 'Forwarder'
+				text() := wm_stock_edi_stock_3
+			}
+			GoodsReceiptReference {
+				@GoodsReceiptReferenceType := 'DeliveryMessageNumber'
+				@AssignedBy := 'Forwarder'
+				text() := wm_stock_edi_stock_2
+			}
+			Quantity {
+				@QuantityType := 'GrossWeight'
+				Value {
+					@UOM := 'KiloGram':)
+					(:text() := sum(../record/wm_stock_grossweight):)
+					(:text() := sum(//record[wm_stock_edi_stock_3 = $x/wm_stock_edi_stock_3]/wm_stock_grossweight)
+				}
+			}
+			NumberOfGoodsReceiptPackages := sum(//record[wm_stock_edi_stock_3 = $x/wm_stock_edi_stock_3]/wm_stock_outer_pck)
+			
+			
+		}
+	}:)
+}	

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeliveryMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.papinet.org/v2r31/DeliveryMessageV2R31.xsd" DeliveryMessageType="ShipmentAdvice" DeliveryMessageStatusType="Original">
+	<DeliveryMessageHeader>
+		<DeliveryMessageNumber>N6181-HOL069</DeliveryMessageNumber>
+		<TransactionHistoryNumber>118739542</TransactionHistoryNumber>
+		<DeliveryMessageDate>
+			<Date>
+				<Year>2026</Year>
+				<Month>04</Month>
+				<Day>28</Day>
+			</Date>
+			<Time>07:13:47</Time>
+		</DeliveryMessageDate>
+		<SenderParty PartyType="Forwarder">
+			<PartyIdentifier PartyIdentifierType="AssignedBySender">SCA_Logistics</PartyIdentifier>
+			<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879</PartyIdentifier>
+			<NameAddress>
+				<Name1>SCA Logistics</Name1>
+				<Address1>Box 805</Address1>
+				<City>SUNDSVALL</City>
+				<PostalCode>85123</PostalCode>
+				<Country ISOCountryCode="SE">SWEDEN</Country>
+			</NameAddress>
+		</SenderParty>
+		<ReceiverParty PartyType="Warehouse">
+			<PartyIdentifier PartyIdentifierType="AssignedBySender">Matrans</PartyIdentifier>
+			<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.3.1.1</PartyIdentifier>
+			<NameAddress>
+				<Name1>Matrans Rotterdam Terminal B.V</Name1>
+				<Address1>STREEFWAALSEWEG 15, HAVEN 2810</Address1>
+				<City>PERNIS</City>
+				<PostalCode>3195</PostalCode>
+				<Country ISOCountryCode="NL">Netherlands</Country>
+			</NameAddress>
+		</ReceiverParty>
+		<ShipToCharacteristics>
+			<ShipToParty PartyType="Warehouse">
+				<PartyIdentifier PartyIdentifierType="AssignedBySeller">23</PartyIdentifier>
+				<PartyIdentifier PartyIdentifierType="AssignedBySender">ROT</PartyIdentifier>
+				<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.3.1.1</PartyIdentifier>
+				<NameAddress>
+					<Name1>Matrans Rotterdam Terminal B.V.</Name1>
+					<Address1>STREEFWAALSEWEG 15, HAVEN 2810</Address1>
+					<City>PERNIS</City>
+					<PostalCode>3195</PostalCode>
+					<Country ISOCountryCode="NL">NETHERLANDS</Country>
+				</NameAddress>
+			</ShipToParty>
+		</ShipToCharacteristics>
+		<DeliveryLeg>
+			<DeliveryLegSequenceNumber>1</DeliveryLegSequenceNumber>
+			<DeliveryOrigin>
+				<Date>
+					<Year>2026</Year>
+					<Month>04</Month>
+					<Day>27</Day>
+				</Date>
+				<Time>21:00:00</Time>
+				<LocationParty PartyType="Warehouse">
+					<PartyIdentifier PartyIdentifierType="AssignedBySender">HOL</PartyIdentifier>
+					<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.1.2.1</PartyIdentifier>
+					<NameAddress>
+						<Name1>SCA Logistics Umeå</Name1>
+						<Address1>Umeå Hamn</Address1>
+						<City>HOLMSUND</City>
+						<PostalCode>913 32</PostalCode>
+						<Country ISOCountryCode="SE">SWEDEN</Country>
+					</NameAddress>
+				</LocationParty>
+			</DeliveryOrigin>
+			<TransportModeCharacteristics TransportModeType="Sea"/>
+			<TransportVehicleCharacteristics TransportVehicleType="RollOnOffShip">
+				<TransportVehicleIdentifier TransportVehicleIdentifierType="VesselName">ORTVIKEN</TransportVehicleIdentifier>
+				<TransportVehicleIdentifier TransportVehicleIdentifierType="VoyageNumber">N6181</TransportVehicleIdentifier>
+			</TransportVehicleCharacteristics>
+			<TransportUnitCharacteristics TransportUnitType="Other">
+				<TransportUnitIdentifier TransportUnitIdentifierType="Other">ORTVIKEN VECKA18</TransportUnitIdentifier>
+				<TransportUnitText>Rolling Unit (own wheels)</TransportUnitText>
+			</TransportUnitCharacteristics>
+			<DeliveryDestination>
+				<Date>
+					<Year>2026</Year>
+					<Month>05</Month>
+					<Day>03</Day>
+				</Date>
+				<Time>06:15:00</Time>
+				<LocationParty PartyType="Warehouse">
+					<PartyIdentifier PartyIdentifierType="AssignedBySeller">23</PartyIdentifier>
+					<PartyIdentifier PartyIdentifierType="AssignedBySender">ROT</PartyIdentifier>
+					<PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879.3.1.1</PartyIdentifier>
+					<NameAddress>
+						<Name1>Matrans Rotterdam Terminal B.V.</Name1>
+						<Address1>STREEFWAALSEWEG 15, HAVEN 2810</Address1>
+						<City>PERNIS</City>
+						<PostalCode>3195</PostalCode>
+						<Country ISOCountryCode="NL">NETHERLANDS</Country>
+					</NameAddress>
+				</LocationParty>
+			</DeliveryDestination>
+			<DeliveryLegReference DeliveryLegReferenceType="DropOffNumber">1</DeliveryLegReference>
+		</DeliveryLeg>
+	</DeliveryMessageHeader>
+	<DeliveryMessageLineItem>
+		<DeliveryMessageLineItemNumber>1</DeliveryMessageLineItemNumber>
+		<DeliveryMessageReference DeliveryMessageReferenceType="PackageMark" AssignedBy="Supplier">VOLVO L90C</DeliveryMessageReference>
+		<DeliveryMessageReference DeliveryMessageReferenceType="DeliveryMessageNumber" AssignedBy="Forwarder">HOLI260427034</DeliveryMessageReference>
+		<DeliveryMessageReference DeliveryMessageReferenceType="DeliveryMessageLineItemNumber" AssignedBy="Forwarder">1</DeliveryMessageReference>
+		<Product>
+			<ProductIdentifier ProductIdentifierType="BrandName" Agency="Supplier">VOLVO L90C</ProductIdentifier>
+			<ProductIdentifier ProductIdentifierType="Other" Agency="Forwarder">IndExtUnitVehicle</ProductIdentifier>
+			<ProductDescription>VOLVO L90C</ProductDescription>
+		</Product>
+		<InventoryClass InventoryOwnedBy="Seller"/>
+		<NumberOfPackages>1</NumberOfPackages>
+		<Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+			<Value UOM="Kilogram">17000</Value>
+		</Quantity>
+		<InformationalQuantity QuantityType="NetWeight" QuantityTypeContext="Delivered">
+			<Value UOM="Kilogram">0</Value>
+		</InformationalQuantity>
+		<TransportLoadingCharacteristics TransportLoadingType="Standing">
+			<TransportLoadingText>Standing</TransportLoadingText>
+		</TransportLoadingCharacteristics>
+		<MillCharacteristics>
+			<MillParty>
+				<PartyIdentifier PartyIdentifierType="AssignedBySender">OTHEREXTCARGO</PartyIdentifier>
+				<NameAddress>
+					<Name1>Other External Cargo</Name1>
+				</NameAddress>
+			</MillParty>
+		</MillCharacteristics>
+		<StatisticalGoodsInformation>
+			<CommodityGoodsCode Agency="Intrastat">-</CommodityGoodsCode>
+		</StatisticalGoodsInformation>
+		<PackageInformation PackageType="Vehicle">
+			<Identifier IdentifierCodeType="Supplier" IdentifierType="Primary">L90CV15762</Identifier>
+			<Identifier IdentifierCodeType="Supplier" IdentifierType="Barcode">L90CV15762</Identifier>
+			<SupplierMarks>VOLVO L90C</SupplierMarks>
+			<ItemCount>
+				<Value UOM="Unit">1</Value>
+			</ItemCount>
+			<Quantity QuantityType="GrossWeight">
+				<Value UOM="Kilogram">17000</Value>
+			</Quantity>
+			<InventoryClass InventoryStatusType="Sound" InventoryOwnedBy="Seller"/>
+		</PackageInformation>
+	</DeliveryMessageLineItem>
+	<DeliveryMessageSummary>
+		<TotalNumberOfLineItems>1</TotalNumberOfLineItems>
+		<TotalQuantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+			<Value UOM="Kilogram">17000</Value>
+		</TotalQuantity>
+		<TotalInformationalQuantity QuantityType="Count" QuantityTypeContext="Delivered">
+			<Value UOM="Package">1</Value>
+		</TotalInformationalQuantity>
+	</DeliveryMessageSummary>
+</DeliveryMessage>

@@ -1,0 +1,31 @@
+(:
+DeliveryMessageShipmentAdvice_to_intakeFF.seemap
+created at May 11, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "papiNet/DeliveryMessageV2R31.seexsd" as source;
+import schema default element namespace "http://www.seeburger.com/SCA/intakeFF" at "MATRANS/intakeFF.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+declare option ACCEPT_WITH_ERRORS "true";
+
+intakeFF <- /DeliveryMessage/DeliveryMessageLineItem/PackageInformation
+{
+
+	record
+	{
+		if(exists(../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/TransportVehicleIdentifier[@TransportVehicleIdentifierType = 'VoyageNumber'])) {
+			doc("mapping:output-parameters"){
+				voyageNumber := ../../DeliveryMessageHeader/DeliveryLeg/TransportVehicleCharacteristics/TransportVehicleIdentifier[@TransportVehicleIdentifierType = 'VoyageNumber']
+			}
+		}
+		if(exists(../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics[@TransportUnitType = 'Trailer']/TransportUnitIdentifier[@TransportUnitIdentifierType = 'TrailerID'])) {
+			doc("mapping:output-parameters"){
+				voyageNumber := ../../DeliveryMessageHeader/DeliveryLeg/TransportUnitCharacteristics[@TransportUnitType = 'Trailer']/TransportUnitIdentifier[@TransportUnitIdentifierType = 'TrailerID']
+			}
+			
+		}
+
+		
+		
+		 } }
+		

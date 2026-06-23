@@ -1,0 +1,176 @@
+(:
+outtakeOrderXML_to_outtakeDeliveryMessageFF.seemap
+created at May 15, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "MATRANS/OUT-CON_SCA.seexsd" as source;
+import schema default element namespace "http://www.seeburger.com/SCA/outtakeDeliveryMessageFF" at "MATRANS/outtakeDeliveryMessageFF.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+
+
+outtakeDeliveryMessageFF 
+
+
+{
+	header   {
+		wm_out_ord_companycode := 'wm_out_ord_companycode'
+	}
+	
+
+	
+	record <- /OUTTAKE_ORDER/ORDER[ord_companycode = 'PCS']/ORDER_LINE/STOCK
+	{
+		wm_out_ord_companycode := ../../ord_companycode
+		wm_out_ord_out_ordnr := ../../ord_out_ordnr
+		wm_out_ord_statuscode := ../../ord_statuscode
+		wm_out_ord_rec_addressnr := ../../ord_rec_addressnr
+		wm_out_ord_transportnr := ../../ord_transportnr
+		wm_out_ord_dt_loading := ../../ord_dt_loading
+		wm_out_ord_tim_loading := ../../ord_tim_loading
+		wm_out_ord_delivery_address := ../../ord_delivery_address
+		wm_out_ord_container_typecode := ../../ord_container_typecode
+		wm_out_ord_containernr := ../../ord_containernr
+		wm_out_ord_projectnr := ../../ord_projectnr
+		wm_out_ord_linecode := ../../ord_linecode
+		wm_out_ord_custref_out1 := ../../ord_custref_out1
+		wm_out_ord_ext_edi_order_text := ../../ord_ext_edi_order_text
+		wm_out_ord_custref_out2 := ../../ord_custref_out2
+		wm_out_ord_custref_out3 := ../../ord_custref_out3
+		wm_out_ord_destination_countrycode := ../../ord_delivery_countrycode
+		wm_out_ord_dt_delivery := ../../ord_dt_delivery
+		wm_out_ord_transporter_addressnr := ../../ord_transporter_addressnr
+		wm_out_ord_tim_delivery := ../../ord_tim_delivery
+		wm_out_ord_custref_out4 := ../../ord_custref_out4
+		wm_out_ord_custref_out5 := ../../ord_custref_out5
+		wm_out_ord_custref_out6 := ../../ord_custref_out6
+		wm_out_ord_custref_out7 := ../../ord_custref_out7
+		wm_out_ord_custref_out8 := ../../ord_custref_out8
+		wm_out_ord_sealno := ../../ord_sealno
+		wm_out_ord_external_reference := ../../ord_external_reference
+		wm_out_ord_delivery_name := ../../ord_delivery_name
+		wm_out_ord_delivery_instructions := ''
+		wm_out_ord_loading_instructions := ../../ord_ind_loadinginstruction
+		wm_out_ord_loc_terminalcode := ../../ord_loc_terminalcode
+		(:wm_out_ord_delivery_country := ../../ord_delivery_country:)
+		wm_out_ord_dt_create := ../../ord_dt_create
+		wm_out_ord_tim_create := ../../ord_tim_create
+		wm_out_ord_dt_update := ../../ord_dt_update
+		wm_out_ord_tim_updated := ../../ord_tim_updated
+		wm_out_ord_edi_out_ord_1 := ../../ord_edi_out_ord_1
+		wm_out_ord_edi_out_ord_2 := ../../ord_edi_out_ord_2
+		wm_out_ord_edi_out_ord_3 := ../../ord_edi_out_ord_3
+		wm_out_ord_edi_out_ord_4 := ../../ord_edi_out_ord_4
+		wm_out_ord_edi_out_ord_5 := ../../ord_edi_out_ord_5
+		wm_out_ord_vehicletypecode := ../../ord_vehicletype
+		wm_out_ord_dt_delivery_to := ../../ord_dt_delivery_to
+		wm_out_ord_tim_delivery_to := ../../ord_tim_delivery_to
+		wm_out_ord_delivery_zipcode := ../../ord_delivery_zipcode
+		wm_out_ord_deliverycode := ../../ord_deliverycode
+		wm_out_ord_transportmode := ../../ord_transportmode
+		wm_out_ord_city := ../../ord_delivery_city
+		wm_out_ord_country := ../../ord_delivery_country
+		wm_out_line_companycode := ../lin_companycode
+		wm_out_line_out_ordnr := ../lin_out_ordnr
+		wm_out_line_out_linenr := ../lin_out_linenr
+		wm_out_line_custref_out1 := ../lin_custref_out1
+		wm_out_line_custref_out2 := ../lin_custref_out2
+		wm_out_line_custref_out3 := ../lin_custref_out3
+		wm_out_line_carrier := ../lin_carrier
+		wm_out_line_outer_pck := ../lin_outer_pck
+		wm_out_line_grossweight := ../lin_grossweight
+		wm_out_line_delivery_addressnr := ../lin_delivery_addressnr
+		wm_out_line_delivery_address := normalize-space(../lin_delivery_address)
+		wm_out_line_supplier_addressnr := ../lin_supplier_addressnr
+		wm_out_line_productgroupcode := ../lin_productgroupcode
+		wm_out_line_qty_controlcode := ../lin_qty_controlcode
+		wm_out_line_packtypecode := ../lin_packtypecode
+		wm_out_line_prodref1 := ../lin_prodref1
+		wm_out_line_prodref2 := ../lin_prodref2
+		wm_out_line_prodref3 := ../lin_prodref3
+		wm_out_line_prodref4 := ../lin_prodref4
+		wm_out_line_prodref5 := ../lin_prodref5
+		wm_out_line_carriercode := ../lin_carriercode
+		wm_out_line_outer_pckcode := ../lin_outer_pckcode
+		wm_out_line_grossweightcode := ../lin_grossweightcode
+		wm_out_line_product_id := ../lin_product_id
+		wm_out_line_cust_addressnr := ../lin_cust_addressnr
+		wm_out_line_warehouseref := ../lin_warehouseref
+		wm_out_line_stockrefnr := ../lin_stockrefnr
+		wm_out_line_transaction_customsrefnr := ../lin_transaction_customsrefnr
+		wm_out_line_container_typecode := ../lin_container_typecode
+		wm_out_line_containernr := ../lin_containernr
+		wm_out_line_remarks := ../lin_remarks
+		wm_out_line_dt_delivery := ../lin_dt_delivery
+		wm_out_line_cust_productcode := ../lin_cust_productcode
+		wm_out_line_termcode := ../lin_termcode
+		wm_out_line_term_place := ../lin_term_place
+		wm_out_line_ext_edi_line_text := ../lin_ext_edi_line_text
+		wm_out_line_edi_out_line_1 := ../lin_edi_out_line_1
+		wm_out_line_edi_out_line_2 := ../lin_edi_out_line_2
+		wm_out_line_edi_out_line_3 := ../lin_edi_out_line_3
+		wm_out_line_edi_out_line_4 := ../lin_edi_out_line_4
+		wm_out_line_edi_out_line_5 := ../lin_edi_out_line_5
+		wm_out_line_custref_in1 := ../lin_custref_in1
+		wm_out_line_packagetype := ../lin_packagetype
+		wm_out_lin_rec_addressnr := ../lin_rec_addressnr
+		wm_stock_companycode := stk_companycode
+		wm_stock_stocknr := stk_stocknr
+		wm_stock_in_ordnr := stk_in_ordnr
+		wm_stock_in_linenr := stk_in_linenr
+		wm_stock_supplier_addressnr := stk_supplier_addressnr
+		wm_stock_stockrefnr := stk_stockrefnr
+		wm_stock_productgroupcode := stk_productgroupcode
+		wm_stock_packtypecode := stk_packtypecode
+		wm_stock_warehouseref := stk_warehouseref
+		wm_stock_barcode_id := stk_barcode_id
+		wm_stock_damagenr := stk_damagenr
+		wm_stock_prodref1 := stk_prodref1
+		wm_stock_prodref2 := stk_prodref2
+		wm_stock_prodref3 := stk_prodref3
+		wm_stock_prodref4 := stk_prodref4
+		wm_stock_prodref5 := stk_prodref5
+		wm_stock_trafficref1 := stk_trafficref1
+		wm_stock_trafficref2 := stk_trafficref2
+		wm_stock_carrier := stk_carrier
+		wm_stock_carriercode := stk_carriercode
+		wm_stock_outer_pck := stk_outer_pck
+		wm_stock_outer_pckcode := stk_outer_pckcode
+		wm_stock_grossweight := stk_grossweight
+		wm_stock_grossweightcode := stk_grossweightcode
+		wm_stock_nettweight := stk_nettweight
+		wm_stock_nettweightcode := stk_nettweightcode
+		wm_stock_dt_create := stk_dt_create
+		wm_stock_tim_create := stk_tim_create
+		wm_stock_barcode_id_internal := stk_barcode_id_internal
+		wm_stock_calcref1 := stk_calcref1
+		wm_stock_calcref2 := stk_calcref2
+		wm_stock_calcref3 := stk_calcref3
+		wm_stock_product_id := stk_product_id
+		wm_stock_ind_active := stk_ind_active
+		wm_stock_ind_blocked := stk_ind_blocked
+		wm_stock_barcode_exp := stk_barcode_exp
+		wm_stock_dt_mutation := stk_dt_mutation
+		wm_stock_edi_stock_1 := stk_edi_stock_1
+		wm_stock_edi_stock_2 := stk_edi_stock_2
+		wm_stock_edi_stock_3 := stk_edi_stock_3
+		wm_stock_edi_stock_4 := stk_edi_stock_4
+		wm_stock_edi_stock_5 := stk_edi_stock_5
+		wm_out_line_supplier_shortname := ../lin_supplier_shortname
+		wm_out_ord_delivery_shortname := ../../ord_delivery_shortname
+		(:wm_out_ord_delivery_city := ../../ord_delivery_city:)
+		(:wm_out_ord_delivery_countrycode := ../../ord_delivery_countrycode:)
+		(:wm_out_ord_transportunitcode := ../../ord_transportunitcode:)
+		(:wm_out_ord_vehicletype := ../../ord_vehicletype:)
+		wm_out_line_supplier_name := ../lin_supplier_name
+		wm_out_ord_vehicleidentifier := ../../ord_vehicleidentifier
+		wm_out_ord_vehicleidentifiertype := ../../ord_vehicleidentifiertype
+		wm_out_ord_TransportUnitType := ../../ord_TransportUnitType
+		wm_out_ord_TransportUnitIdentifierType := ../../ord_TransportUnitIdentifierType
+		wm_out_ord_TransportUnitIdentifier := ../../ord_TransportUnitIdentifier
+		wm_out_ord_ord_container_iso := ../../ord_container_iso
+		wm_out_ord_reasoncode := ../../ord_reasoncode
+		wm_out_ord_reasondescription := ../../ord_reasondescription
+		(:wm_out_line_rec_addressnr := ../lin_rec_addressnr:)
+	}
+}

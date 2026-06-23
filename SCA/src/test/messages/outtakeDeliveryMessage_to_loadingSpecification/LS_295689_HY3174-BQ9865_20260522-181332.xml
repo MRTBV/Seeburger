@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DeliveryMessage DeliveryMessageType="LoadedSpecification" DeliveryMessageStatusType="Original">
+    <DeliveryMessageHeader>
+        <DeliveryMessageNumber>295689</DeliveryMessageNumber>
+        <DeliveryMessageDate>
+            <Date>
+                <Year>2026</Year>
+                <Month>05</Month>
+                <Day>22</Day>
+            </Date>
+            <Time>18:13:18</Time>
+        </DeliveryMessageDate>
+        <DeliveryMessageReason>
+            <DeliveryMessageReasonCode Agency="Other">LOADED</DeliveryMessageReasonCode>
+            <DeliveryMessageReasonDescription>Loaded but not ready</DeliveryMessageReasonDescription>
+        </DeliveryMessageReason>
+        <DeliveryMessageReference DeliveryMessageReferenceType="OriginalDeliveryNumber">59383866-001-ROT001</DeliveryMessageReference>
+        <SenderParty PartyType="Warehouse">
+            <PartyIdentifier PartyIdentifierType="AssignedBySender">MRT01</PartyIdentifier>
+            <NameAddress>
+                <Name1>Matrans Rotterdam Terminal</Name1>
+                <Address1>Streefwaalseweg 15</Address1>
+                <City>Pernis</City>
+                <PostalCode>3195 KN</PostalCode>
+                <Country ISOCountryCode="NL">Netherlands</Country>
+            </NameAddress>
+        </SenderParty>
+        <ReceiverParty PartyType="Forwarder">
+            <PartyIdentifier PartyIdentifierType="papiNetGlobalPartyIdentifier">1.3.6.1.4.1.16879</PartyIdentifier>
+            <NameAddress>
+                <Name1>SCA Logistics</Name1>
+                <Address1>Box 805</Address1>
+                <City>SUNDSVALL</City>
+                <PostalCode>85123</PostalCode>
+                <Country ISOCountryCode="SE">Sweden</Country>
+            </NameAddress>
+        </ReceiverParty>
+        <ShipToCharacteristics>
+            <ShipToParty PartyType="ShipTo">
+                <PartyIdentifier PartyIdentifierType="AssignedBySeller">MEERB</PartyIdentifier>
+                <NameAddress>
+                    <Name1>DS Smith Packaging Eerbeek</Name1>
+                    <Address1>Coldenhovenseweg 130</Address1>
+                    <City>Eerbeek</City>
+                    <PostalCode>6961</PostalCode>
+                    <Country ISOCountryCode="NL">Nederland</Country>
+                </NameAddress>
+            </ShipToParty>
+        </ShipToCharacteristics>
+        <DeliveryLeg DeliveryModeType="PickUp">
+            <DeliveryLegSequenceNumber>1</DeliveryLegSequenceNumber>
+            <DeliveryOrigin>
+                <Date>
+                    <Year>2026</Year>
+                    <Month>05</Month>
+                    <Day>22</Day>
+                </Date>
+                <Time>18:13:18</Time>
+                <LocationParty PartyType="Warehouse">
+                    <PartyIdentifier PartyIdentifierType="AssignedByReceiver">ROT</PartyIdentifier>
+                    <NameAddress>
+                        <Name1>Matrans Rotterdam Terminal</Name1>
+                        <Address1>Streefwaalseweg 15</Address1>
+                        <City>Pernis</City>
+                        <PostalCode>3195 KN</PostalCode>
+                        <Country ISOCountryCode="NL">Netherlands</Country>
+                    </NameAddress>
+                </LocationParty>
+            </DeliveryOrigin>
+            <TransportModeCharacteristics TransportModeType="Road">
+                <TransportModeCode Agency="Intrastat">TR</TransportModeCode>
+            </TransportModeCharacteristics>
+            <TransportVehicleCharacteristics TransportVehicleType="Truck">
+                <TransportVehicleIdentifier TransportVehicleIdentifierType="LicencePlateNumber">29BXG3</TransportVehicleIdentifier>
+            </TransportVehicleCharacteristics>
+            <TransportUnitCharacteristics TransportUnitType="Trailer">
+                <TransportUnitIdentifier TransportUnitIdentifierType="TrailerID">29BXG3</TransportUnitIdentifier>
+            </TransportUnitCharacteristics>
+            <DeliveryDestination>
+                <Date>
+                    <Year>2026</Year>
+                    <Month>05</Month>
+                    <Day>22</Day>
+                </Date>
+                <LocationParty PartyType="ShipTo">
+                    <NameAddress>
+                        <Name1>DS Smith Packaging Eerbeek</Name1>
+                        <Address1>Coldenhovenseweg 130</Address1>
+                        <City>Eerbeek</City>
+                        <PostalCode>6961</PostalCode>
+                        <Country ISOCountryCode="NL">Nederland</Country>
+                    </NameAddress>
+                </LocationParty>
+            </DeliveryDestination>
+        </DeliveryLeg>
+    </DeliveryMessageHeader>
+    <DeliveryMessageLineItem>
+        <DeliveryMessageLineItemNumber>4</DeliveryMessageLineItemNumber>
+        <PurchaseOrderLineItemNumber>1</PurchaseOrderLineItemNumber>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingInstructionNumber" AssignedBy="Forwarder">59383866-001-ROT001</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingOrderNumber" AssignedBy="Forwarder">ROTI260519002</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingOrderLineNumber" AssignedBy="Forwarder">4</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="PackageMark">60147</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="Other">SELLER</DeliveryMessageReference>
+        <Product>
+            <ProductIdentifier ProductIdentifierType="Other" Agency="Forwarder">WT2200</ProductIdentifier>
+        </Product>
+        <NumberOfPackages>4</NumberOfPackages>
+        <Quantity QuantityType="GrossWeight" QuantityTypeContext="Loaded">
+            <Value UOM="Kilogram">10774.0</Value>
+        </Quantity>
+        <MillCharacteristics>
+            <MillParty>
+                <PartyIdentifier PartyIdentifierType="AssignedByReceiver">MUNKSUND</PartyIdentifier>
+                <NameAddress>
+                    <Name1>MUNKSUND</Name1>
+                </NameAddress>
+            </MillParty>
+        </MillCharacteristics>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264621631842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2684.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264621391842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2706.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264621371842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2700.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264621601842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2684.0</Value>
+            </Quantity>
+        </PackageInformation>
+    </DeliveryMessageLineItem>
+    <DeliveryMessageLineItem>
+        <DeliveryMessageLineItemNumber>1</DeliveryMessageLineItemNumber>
+        <PurchaseOrderLineItemNumber>2</PurchaseOrderLineItemNumber>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingInstructionNumber" AssignedBy="Forwarder">59383866-001-ROT001</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingOrderNumber" AssignedBy="Forwarder">ROTI260519002</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingOrderLineNumber" AssignedBy="Forwarder">1</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="PackageMark">60156</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="Other">SELLER</DeliveryMessageReference>
+        <Product>
+            <ProductIdentifier ProductIdentifierType="Other" Agency="Forwarder">WT2200</ProductIdentifier>
+        </Product>
+        <NumberOfPackages>1</NumberOfPackages>
+        <Quantity QuantityType="GrossWeight" QuantityTypeContext="Loaded">
+            <Value UOM="Kilogram">2936.0</Value>
+        </Quantity>
+        <MillCharacteristics>
+            <MillParty>
+                <PartyIdentifier PartyIdentifierType="AssignedByReceiver">MUNKSUND</PartyIdentifier>
+                <NameAddress>
+                    <Name1>MUNKSUND</Name1>
+                </NameAddress>
+            </MillParty>
+        </MillCharacteristics>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264614491842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2936.0</Value>
+            </Quantity>
+        </PackageInformation>
+    </DeliveryMessageLineItem>
+    <DeliveryMessageLineItem>
+        <DeliveryMessageLineItemNumber>2</DeliveryMessageLineItemNumber>
+        <PurchaseOrderLineItemNumber>3</PurchaseOrderLineItemNumber>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingInstructionNumber" AssignedBy="Forwarder">59383866-001-ROT001</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingOrderNumber" AssignedBy="Forwarder">ROTI260519002</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="LoadingOrderLineNumber" AssignedBy="Forwarder">2</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="PackageMark">60156</DeliveryMessageReference>
+        <DeliveryMessageReference DeliveryMessageReferenceType="Other">SELLER</DeliveryMessageReference>
+        <Product>
+            <ProductIdentifier ProductIdentifierType="Other" Agency="Forwarder">WT2200</ProductIdentifier>
+        </Product>
+        <NumberOfPackages>5</NumberOfPackages>
+        <Quantity QuantityType="GrossWeight" QuantityTypeContext="Loaded">
+            <Value UOM="Kilogram">14868.0</Value>
+        </Quantity>
+        <MillCharacteristics>
+            <MillParty>
+                <PartyIdentifier PartyIdentifierType="AssignedByReceiver">MUNKSUND</PartyIdentifier>
+                <NameAddress>
+                    <Name1>MUNKSUND</Name1>
+                </NameAddress>
+            </MillParty>
+        </MillCharacteristics>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264562241842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2980.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264615021842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2958.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264615141842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2994.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264615171842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">2922.0</Value>
+            </Quantity>
+        </PackageInformation>
+        <PackageInformation PackageType="ReelPackage">
+            <Identifier IdentifierCodeType="UIC14" IdentifierType="Barcode">20264612151842</Identifier>
+            <Quantity QuantityType="GrossWeight" QuantityTypeContext="Delivered">
+                <Value UOM="Kilogram">3014.0</Value>
+            </Quantity>
+        </PackageInformation>
+    </DeliveryMessageLineItem>
+    <DeliveryMessageSummary>
+        <TotalQuantity QuantityType="GrossWeight" QuantityTypeContext="Loaded">
+            <Value UOM="Kilogram">28578.0</Value>
+        </TotalQuantity>
+        <TotalInformationalQuantity QuantityType="Count">
+            <Value UOM="Package">10</Value>
+        </TotalInformationalQuantity>
+    </DeliveryMessageSummary>
+</DeliveryMessage>
