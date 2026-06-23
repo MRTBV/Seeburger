@@ -1,0 +1,16 @@
+(:
+compMapping.seemap
+created at Apr 10, 2025 by h.doo
+:)
+
+import schema default element namespace "http://www.seeburger.com/TEST/TEST_READ" at "540/540.seexsd" as source;
+import schema default element namespace "http://www.seeburger.com/TEST/TEST_READ" at "540/540_OUT.seexsd" as target;
+
+declare option segment.terminator "\u001c";
+declare option element.separator "*";
+
+
+
+Chrysler540 <- /Chrysler540 { 
+    <<- *
+}

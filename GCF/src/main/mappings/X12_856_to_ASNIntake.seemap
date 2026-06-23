@@ -1,0 +1,140 @@
+import schema default element namespace "http://www.seeburger.com/Matrans/ASNIntake" at "MATRANS/ASNIntake.seexsd" as target;
+import schema default element namespace "" at "ANSIX12/856_004010_STD.seexsd" as source;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+declare option ELEMENT_DELIMITER "	";
+declare option SEGMENT_DELIMITER "\r\n";
+
+
+
+@suppressCodeValidation("INCOMPATIBLE_CARDINALITY_FUNCTION_CALL_CODE")
+
+ASNIntake <- /_856_004010_STD/ISA/GS/ST
+{
+	record
+	{
+		H := 'H'
+	}
+	doc("mapping:output-parameters") {
+		MATRANS_ASNIntake_FILENAME := 'Intake_ASN_' || BSN/_396 || '_' || generateUUID() || '.txt'
+	}
+	let $transport_id := HL/HL[_735 = 'S']/REF[_128 = 'VA']/_127
+	let $pol := HL/HL[_735 = 'S']/N1/N1[_98 = 'SF']/_93
+	let $purchase_order := HL/HL[_735 = 'O']/REF[_128 = 'OP']/_127
+	let $custref_in2 := HL/HL[_735 = 'O']/REF[_128 = 'OP']/_127
+	let $sales_order := HL/HL[_735 = 'O']/REF[_128 = 'VN']/_127
+	let $custref_in1 := HL/HL[_735 = 'O']/REF[_128 = 'VN']/_127
+	let $product_id := substring(HL/HL[_735 = 'D']/LIN[_235 = 'GC']/_234[2], 1, 15)
+	let $qualitycode := HL/HL[_735 = 'D']/LIN[_235 = 'GC']/_234[1]
+	let $supplier_addressnr := HL/HL[_735 = 'D']/LIN[_235 = 'IN']/_234[2]
+	let $grammage := HL/HL[_735 = 'D']/PID[_349 = 'F'][_750 = '08']/_352
+	let $core_diameter := format-number(HL/HL[_735 = 'D']/MEA[_737 = 'CS'][_738 = 'DI']/_739,'#.00','nl-NL')
+	let $diameter := HL/HL[_735 = 'D']/MEA[_737 = 'PD'][_738 = 'DI']/_739
+	let $width := HL/HL[_735 = 'D']/MEA[_737 = 'PD'][_738 = 'WD']/_739
+	(:let $airdry_weight := sum(/_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I']/MEA[_737 = 'PD'][_738 = 'WT']/_739):)
+	let $senderID := trim(/_856_004010_STD/ISA/I06)
+
+	for $x at $index in HL/HL[_735 = 'I'] group by LIN/_234[4]   {
+	
+	
+	detail {
+		airdry_weight := sum(MEA[_737 = 'PD'][_738 = 'WT']/_739)
+		barcode_id := $x[1]/LIN/_234[2]
+		bill_of_ladingnr := $x[1]/preceding::BSN/_396
+		containernr := $x[1]/TD3/_206 || $x[1]/TD3/_207
+		core_diameter := $core_diameter
+		if($senderID = 'IPGCF')
+		{
+			cust_addressnr := 'INTEMEMP'
+		}
+		custref_in1 := $custref_in1
+		custref_in2 := $custref_in2
+		diameter := format-number($diameter,'#.00','nl-NL')
+		edi_stock_1 := string-join($x/LIN/_234[1], '|') || '|'
+		edi_stock_2 := string-join($x/MEA[_737 = 'WT'][_738 = 'G']/_739,'|') || '|'	
+		edi_stock_3 := string-join($x/MEA[_737 = 'WT'][_738 = 'N']/_739,'|') || '|'
+		edi_stock_4 := $x[1]/LIN/_234[4]	
+		extra_alfa1 := count($x)
+		extra_alfa2 := '1'
+		grammage := substring-before($grammage, 'GSM')
+		grossweight := format-number(sum(MEA[_737 = 'WT'][_738 = 'G']/_739),'#.00','nl-NL')
+		(:grossweight := sum(MEA[_737 = 'WT'][_738 = 'G']/_739):)	
+		inner_pck := count($x)
+		items_per_pack := count($x)
+		length := format-number(round($x[1]/MEA[_738 = 'LN']/_739, 2, "HALF_UP"),'#.00','nl-NL')
+		nettweight := format-number(sum($x/MEA[_737 = 'WT'][_738 = 'N']/_739),'#.00','nl-NL')
+		outer_pck := '1'
+		outer_pckcode := $x[1]/TD1[_103 = 'ROL']/_80
+		parcel_id := string-join($x/LIN/_234[2], '|') || '|'
+		pol := $pol
+		product_id := $product_id
+		purchase_order := $purchase_order
+		qualitycode := $qualitycode
+		sales_order := $sales_order
+		sscc := $x[1]/LIN[_235 = 'UO']/_234[4]
+		(:supplier_addressnr := $supplier_addressnr:)
+		transport_id := $transport_id
+		voyage := /_856_004010_STD/ISA/GS/ST/BSN/_396
+		width := format-number($width,'#.00','nl-NL')
+		H := 'D'
+		}	
+	}
+
+	(:detail <- HL/HL[_735 = 'I'] 
+	{
+		
+		let $airdry_weight := sum(MEA[_737 = 'PD'][_738 = 'WT']/_739)
+		
+		airdry_weight := $airdry_weight
+		barcode_id := LIN/_234[4]
+		bill_of_ladingnr := ../../BSN/_396
+		containernr := TD3/_206 || TD3/_207
+		core_diameter := $core_diameter
+		if($senderID = 'IPGCF')
+		{
+			cust_addressnr := 'INTEMEMP'
+		}
+		custref_in1 := $custref_in1
+		custref_in2 := $custref_in2
+		diameter := $diameter
+
+		let $t := LIN[_235 = 'UO']/_234
+		for $d in distinct-values(../HL[_735 = 'I']/LIN[_235 = 'UO']/_234)
+		{
+			edi_stock_1 := for $x in /_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I'][LIN[_235 = 'UO']/_234[4] = $t] return LIN/_234[1]
+		}
+
+		extra_alfa1 := count(for $x in /_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I'][LIN[_235 = 'UO']/_234[4] = $t] return $x)
+		extra_alfa2 := '1'
+
+		grammage := substring-before($grammage, 'GSM')
+
+		for $d in distinct-values(../HL[_735 = 'I']/LIN[_235 = 'UO']/_234[4])
+		{
+
+			grossweight := sum(for $x in /_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I'][LIN[_235 = 'UO']/_234[4] = $d]/MEA[_737 = 'WT'][_738 = 'G']/_739 return number($x))
+			inner_pck := count(for $x in /_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I'][LIN[_235 = 'UO']/_234[4] = $d] return $x)
+			items_per_pack := count(for $x in /_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I'][LIN[_235 = 'UO']/_234[4] = $d] return $x)
+		}
+
+		length := round(MEA[_738 = 'LN']/_739, 2, "HALF_UP")
+		for $d in distinct-values(../HL[_735 = 'I']/LIN[_235 = 'UO']/_234[4])
+		{
+
+			nettweight := sum(for $x in /_856_004010_STD/ISA/GS/ST/HL/HL[_735 = 'I'][LIN[_235 = 'UO']/_234[4] = $d]/MEA[_737 = 'WT'][_738 = 'N']/_739 return number($x))
+		}
+		outer_pck := '1'
+		outer_pckcode := TD1[_103 = 'ROL']/_80
+		parcel_id := ''
+		pol := $pol
+		product_id := $product_id
+		purchase_order := $purchase_order
+		qualitycode := $qualitycode
+		sales_order := $sales_order
+		sscc := LIN[_235 = 'UO']/_234[4]
+		supplier_addressnr := $supplier_addressnr
+		transport_id := $transport_id
+		voyage := ../../BSN/_396
+		width := $width
+	}:)
+}

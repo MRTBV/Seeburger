@@ -1,0 +1,153 @@
+import schema default element namespace "" at "ANSIX12/861_004010_STD_01.seexsd" as target;
+import schema default element namespace "http://www.seeburger.com/GCF/outtakeOrderConfirmation" at "MATRANS/intakeOrderConfirmation.seexsd" as source;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+declare option ELEMENT_DELIMITER "*";
+declare option SEGMENT_DELIMITER '~\r\n';
+
+_861_004010_STD_01 <- /intakeOrderConfirmation
+{
+
+	@suppressCodeValidation("INVALID_NODE_ORDERING")
+	ISA
+	{
+		I01 := '00'
+		I03 := '00'
+		I05 := 'ZZ'
+		I06 := 'MRT01          '
+		I05 := 'ZZ'
+		I07 := 'IPGCF          '
+		I08 := format-date(current-dateTime(), 'yyMMdd')
+		I09 := format-date(current-dateTime(), 'HHmm')
+		I10 := 'U'
+		I11 := '00501'
+		let $counterGroupControlNumber := nextCounter("MRT-COUNTER-GCF-861")
+		I12 := lFill($counterGroupControlNumber, '0', 9)
+		I13 := '0'
+		I14 := 'P'
+
+		GS
+		{
+			_479 := 'RC'
+			_142 := 'MRT01'
+			_124 := 'IPGCF'
+			_373 := format-date(current-dateTime(), 'yyyyMMdd')
+			_337 := format-date(current-dateTime(), 'HHmmss')
+			_28 := lFill($counterGroupControlNumber, '0', 9)
+			_455 := 'X'
+			_480 := '005010'
+
+			ST
+			{
+				_143 := '861'
+				_329 := lFill($counterGroupControlNumber, '0', 9)
+
+				BRA
+				{
+					_127 := record[1]/wm-in_ord.in_ordnr || '-' || record[1]/wm-stock.containernr
+					_373 := format-date(date(record[1]/wm-in_ord.dt_update, 'dd/MM/yy'), 'yyyyMMdd')
+					_353 := '08'
+					_962 := '3'
+				}
+
+				DTM
+				{
+					_374 := '006'
+					_373 := format-date(date(record[1]/wm-in_ord.dt_update, 'dd/MM/yy'), 'yyyyMMdd')
+				}
+
+				N1
+				{
+					N1
+					{
+						_98 := 'VN'
+						_66 := '96'
+						_67 := 'ROT'
+					}
+				}
+
+				RCD
+				{
+					RCD
+					{
+						_350 := '1'
+						_663 := '18'
+
+						LIN
+						{
+							_350 := '1'
+							_235 := 'IN'
+						}
+
+						REF
+						{
+							_128 := 'BM'
+							_127 := record[1]/wm-in_ord.in_ordnr || '-' || record[1]/wm-stock.containernr
+						}
+
+						MEA
+						{
+							_738 := 'QUR'
+							_739 := count(record)
+							C001
+							{
+								_355 := 'ZZ'
+								_1018 := '8000'
+							}
+						}
+
+						TD3
+						{
+							_206 := substring(record[1]/wm-stock.containernr, 1, 4)
+							_207 := substring(record[1]/wm-stock.containernr, 5)
+						}
+
+						N1
+						{
+							N1
+							{
+								_98 := 'WH'
+								_93 := 'Matrans Rotterdam Terminal B.V.'
+								_66 := '7'
+								_67 := 'ROT'
+
+								REF <- record
+								{
+									_128 := 'LS'
+									_127 := wm-stock.barcode_id
+								}
+							}
+						}
+					}
+				}
+
+				CTT
+				{
+					_354 := count(record)
+				}
+
+				let $segmentCount := target-node-count('segment', '*')
+				SE
+				{
+					_96 := $segmentCount + 2
+					_329 := lFill($counterGroupControlNumber, '0', 9)
+				}
+			}
+
+			GE
+			{
+				_97 := '1'
+				_28 := lFill($counterGroupControlNumber, '0', 9)
+			}
+		}
+
+		IEA
+		{
+			I16 := '1'
+			I12 := lFill($counterGroupControlNumber, '0', 9)
+		}
+	}
+}
+		
+
+

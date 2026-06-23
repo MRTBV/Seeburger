@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/main/schemas/MATRANS/outtakeOrderConfirmation.seexsd=UTF-8
+encoding//src/main/schemas/MATRANS/softPakInvoice.seexsd=UTF-8
+encoding//src/main/schemas/MATRANS/softPakReference.seexsd=UTF-8
+encoding//src/test/messages/MATRANS/outtakeOrder/OUT-CON-00294571-202605110756.txt=windows-1252
+encoding//src/test/messages/MATRANS/outtakeOrderConfirmation/OuttakeOrder_Confirmation.txt=UTF-8
+encoding//src/test/messages/softPakReference/SoftpakReferenceXML.xml=UTF-8
+encoding//src/test/messages/softpakInvoice_to_X12_210/SoftpakInvoiceXML.xml=UTF-8
+encoding/<project>=UTF-8

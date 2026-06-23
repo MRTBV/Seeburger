@@ -1,0 +1,21 @@
+(:
+X12_204_to_softPakReference.seemap
+created at May 8, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "ANSIX12/204_004010_STD.seexsd" as source;
+import schema default element namespace "" at "MATRANS/softPakReference.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+invoices <- /_204_004010_STD/ISA/GS
+{   
+	file <- ST {
+		wmOutOrd := L11[_128 = '3P']/_127
+		invoiceRef := L11[_128 = 'BM']/_127 
+		doc("mapping:output-parameters") {
+			User_Reference_1 := L11[_128 = '3P']/_127
+			v_InvoiceRef := L11[_128 = '3P']/_127
+			v_WmOutOrd := L11[_128 = 'BM']/_127 
+		}
+	}
+}

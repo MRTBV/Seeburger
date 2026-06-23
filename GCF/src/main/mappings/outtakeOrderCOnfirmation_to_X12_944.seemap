@@ -1,0 +1,159 @@
+import schema default element namespace "" at "ANSIX12/944_005010_STD.seexsd" as target;
+import schema namespace out = "http://www.seeburger.com/GCF/outtakeOrder" at "MATRANS/outtakeOrderConfirmation.seexsd" as source;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+declare option ELEMENT_DELIMITER "*";
+declare option SEGMENT_DELIMITER '~\r\n';
+
+_944_005010_STD <- /outtakeOrderConfirmation
+{
+
+	@suppressCodeValidation("INVALID_NODE_ORDERING")
+	ISA
+	{
+		I01 := '00'
+		I03 := '00'
+		I05 := 'ZZ'
+		I06 := 'MRT01          '
+		I05 := 'ZZ'
+		I07 := 'IPGCF          '
+		I08 := format-date(current-dateTime(), 'yyMMdd')
+		I09 := format-date(current-dateTime(), 'HHmm')
+		I65 := 'U'
+		I11 := '00501'
+		let $counterGroupControlNumber := nextCounter("MRT-COUNTER-GCF-944")
+		I12 := lFill($counterGroupControlNumber, '0', 9)
+		I13 := '0'
+		I14 := 'P'
+
+		GS
+		{
+			_479 := 'IM'
+			_142 := 'MRT01'
+			_124 := 'IPGCF'
+			_373 := format-date(current-dateTime(), 'yyyyMMdd')
+			_337 := format-date(current-dateTime(), 'HHmmss')
+			_28 := lFill($counterGroupControlNumber, '0', 9)
+			_455 := 'X'
+			_480 := '005010'
+
+			ST
+			{
+				_143 := '944'
+				_329 := lFill($counterGroupControlNumber, '0', 9)
+
+				W17
+				{
+					_514 := 'N'
+					_373 := format-date(date(record[1]/wm-out_ord.dt_update, 'dd/MM/yy'), 'yyyyMMdd')
+					_394 := record[1]/wm-out_ord.out_ordnr
+					_285 := record[1]/wm-out_line.custref_in1
+				}
+
+				S0100
+				{
+					N1
+					{
+						_98 := 'RC'
+						_93 := token-at-index(record[1]/wm-out_ord.delivery_address, '\\[LF]', 1)
+						_66 := 7
+
+						_67 := token-at-index(record[1]/wm-out_ord.delivery_address, '\\[LF]', 3)
+					}
+
+					N1
+					{
+						_98 := 'VN'
+						_93 := 96
+						_67 := 'ROT'
+					}
+				}
+
+				N9
+				{
+					_128 := 'BL'
+					_127 := record[1]/wm-out_ord.out_ordnr
+				}
+
+				W08
+				{
+					_91 := 'M'
+					_140 := 'SCA2'
+				}
+
+				S0200
+				{
+					LX
+					{
+						_554 := 1
+
+						S210
+						{
+
+							@suppressCodeValidation("INVALID_FUNCTION_ARGUMENT_TYPES")
+							W07
+							{
+								_413 := sum(record[wm-stock.companycode = 'PCS']/wm-stock.grossweight)
+								_355 := 'ZZ'
+								_235 := 'IN'
+								_234 := record[1]/wm-out_line.custref_in2
+							}
+
+							@suppressCodeValidation("INVALID_FUNCTION_ARGUMENT_TYPES")
+
+							W07
+							{
+								_413 := sum(record[wm-stock.companycode = 'PCS']/wm-stock.inner_pck)
+								_355 := 'PK'
+								_235 := 'IN'
+								_234 := record[1]/wm-out_line.custref_in2
+
+								for $i in record {
+								N9
+								{
+									_128 := 'LS'
+									_127 := token-at-index(wm-stock.remarks,'\\|',1)
+								}
+								
+																N9 
+								{
+									_128 := 'LS'
+									_127 := token-at-index(wm-stock.remarks,'\\|',2)
+								}
+									}
+							}
+						}
+					}
+				}
+
+				@suppressCodeValidation("INVALID_FUNCTION_ARGUMENT_TYPES")
+				W14
+				{
+					_413 := sum(record[wm-stock.companycode = 'PCS']/wm-stock.grossweight)
+				}
+
+				let $segmentCount := target-node-count('segment', '*')
+				SE
+				{
+					_96 := $segmentCount + 2
+					_329 := lFill($counterGroupControlNumber, '0', 9)
+				}
+			}
+
+			GE
+			{
+				_97 := '1'
+				_28 := lFill($counterGroupControlNumber, '0', 9)
+			}
+		}
+
+		IEA
+		{
+			I16 := '1'
+			I12 := lFill($counterGroupControlNumber, '0', 9)
+		}
+	}
+}
+		
+
+

@@ -1,0 +1,174 @@
+(:
+softpakInvoice_to_X12_210.seemap
+created at May 10, 2026 by r.hilberts
+:)
+import schema default element namespace "" at "MATRANS/softPakInvoice.seexsd" as source;
+import schema default element namespace "" at "ANSIX12/210_004010_STD.seexsd" as target;
+
+declare option truncate "right";
+declare option parser.input.document.namefilter "mapping:main-source-document";
+declare option ELEMENT_DELIMITER "*";
+declare option SEGMENT_DELIMITER '~\r\n';
+
+(: This option suppresses the creation of empty nodes. 
+ * A node is not empty if it is a primitive node with a value or if it contains a non-empty child node.
+:)
+@opt("skip.empty")
+
+_210_004010_STD <- /Invoices
+{
+
+	@suppressCodeValidation("INVALID_NODE_ORDERING")
+	ISA
+	{
+		I01 := '00'
+		I03 := '00'
+		I05 := 'ZZ'
+		I06 := 'MRT01          '
+		I05 := 'ZZ'
+		I07 := 'GFCTRANS       '
+		I08 := format-date(current-dateTime(), 'yyMMdd')
+		I09 := format-date(current-dateTime(), 'HHmm')
+		I10 := 'U'
+		I11 := '00400'
+		let $counterGroupControlNumber := nextCounter("MRT-COUNTER-GCF-210")
+		I12 := lFill($counterGroupControlNumber, '0', 9)
+		I13 := '0'
+		I14 := 'P'
+
+		GS
+		{
+			_479 := 'IM'
+			_142 := 'MRT01'
+			_124 := 'GFCTRANS'
+			_373 := format-date(current-dateTime(), 'yyyyMMdd')
+			_337 := format-date(current-dateTime(), 'HHmmss')
+			_28 := lFill($counterGroupControlNumber, '0', 9)
+			_455 := 'X'
+			_480 := '004010'
+
+			ST <- Invoice
+			{
+				_143 := '210'
+				_329 := lFill($counterGroupControlNumber, '0', 9)
+
+				@suppressCodeValidation("UNKNOWN", "INVALID_FUNCTION_ARGUMENT_TYPES")
+
+				B3
+				{
+					_76 := invoicenummer
+					_145 := Invoice_numbers/invoiceref
+					_146 := 'CC'
+					_373 := format-date(invoice_date, 'yyyyMMdd')
+					_193 := rFill(round(abs(amount)), "0", 5)
+					_140 := 'SCA2'
+				}
+
+				C3
+				{
+					_100 := 'EUR'
+				}
+
+				@suppressCodeValidation("INVALID_FUNCTION_ARGUMENT_TYPES")
+
+				G62
+				{
+					_432 := 'CL'
+					_373 := format-date(invoice_date, 'yyyyMMdd')
+				}
+
+				S0200
+				{
+					N7
+					{
+						if(exists(Invoice_numbers/custrefout_4))
+						{
+							_207 := substring(Invoice_numbers/custrefout_4, 0, 10)
+						}
+						else
+						{
+							_207 := ' '
+						}
+					}
+				}
+
+				S0300
+				{
+					S5
+					{
+						_165 := '1'
+						_163 := 'CL'
+						_81 := number(Invoice_numbers/weight_KGS)
+						_188 := 'K'
+
+						S0310
+						{
+
+							N1
+							{
+								_98 := 'SH'
+								_93 := Invoice_numbers/Supplier
+							}
+
+							N1
+							{
+								_98 := 'ST'
+								_93 := normalize-space(substring(Invoice_numbers/delivery_address, 0, 60))
+							}
+						}
+					}
+				}
+
+				S0400
+				{
+					LX
+					{
+						_554 := '1'
+
+						N9
+						{
+							_128 := 'SI'
+							_127 := Invoice_numbers/invoiceref
+						}
+
+						L5
+						{
+							_79 := Invoice_numbers/Product_description
+						}
+
+						L1
+						{
+							_58 := '0'
+							_150 := 'TER'
+							_276 := 'Handling (terminal)'
+						}
+					}
+				}
+
+				L3
+				{
+					_81 := number(Invoice_numbers/weight_KGS)
+				}
+				let $segmentCount := target-node-count('segment', '*')
+				SE
+				{
+
+					_96 := $segmentCount + 2
+					_329 := lFill($counterGroupControlNumber, '0', 9)
+				}
+			}
+
+			GE
+			{
+				_97 := '1'
+				_28 := lFill($counterGroupControlNumber, '0', 9)
+			}
+		}
+
+		IEA
+		{
+			I16 := '1'
+			I12 := lFill($counterGroupControlNumber, '0', 9)
+		}
+	}
+}

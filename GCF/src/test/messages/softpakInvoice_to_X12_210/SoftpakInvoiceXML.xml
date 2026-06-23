@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Invoices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Invoice>
+    <invoicenummer>60077254</invoicenummer>
+    <invoice_date>2026-05-04</invoice_date>
+    <currency>EUR</currency>
+    <amount>275.85</amount>
+    <Invoice_numbers>
+      <invoiceref>9000145349</invoiceref>
+      <date_loading>2026-05-04</date_loading>
+      <custrefout_4/>
+      <weight_KGS>25041.0</weight_KGS>
+      <Supplier>International Paper Franklin</Supplier>
+      <delivery_address>Essity Operations Hoogezand B.V
+Abramskade 6
+9601 KM Hoogezand
+Nederland</delivery_address>
+      <Product_description>Fluff Pulp Reels</Product_description>
+    </Invoice_numbers>
+  </Invoice>
+</Invoices>
