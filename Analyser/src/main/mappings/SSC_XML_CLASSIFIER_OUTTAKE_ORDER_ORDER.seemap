@@ -1,0 +1,78 @@
+(:
+SSC_XML_CLASSIFIER_TEMPLATE.seemap
+created at 06.05.2024 by j.brecht
+:)
+declare option Q{parser.xml.factory.feature:http://apache.org/xml/features/} disallow-doctype-decl "false";
+declare option Q{parser.xml.factory.feature:http://xml.org/sax/features/} external-general-entities "true";
+
+declare function FirstValue($InputValues as xs:node) as xs:any
+{
+	let $Sequence := for $Value in $InputValues return( if (isFilled(trim($Value)))
+					then $Value
+					else()) return($Sequence, "NOT_SET")[1]
+};
+
+
+
+	for/*
+	{
+		(: 
+		 The If condition can be changed to 
+		  if(local-name(.) = "XML ROOT Tag")
+		  if( starts-with(local-name(.), "Beginning of the XML ROOT Tag"))
+		  and maybe additional Checks on Inputparameters like: getInputParameter("XML_ROOT") = "DesiredValue"
+		:)
+		if(local-name(.) = "OUTTAKE_ORDER")
+		{
+			(: Option to Not Show Empty Output:)			
+			@opt("skip.empty")
+			
+			doc("mapping:output-parameters")
+			{
+				(:In Case of SEEXML the Following XPaths can be used
+				  in case of different XML the XPaths(without Root Tag) can be used with the Function declared from above 
+				  which takes the first Value it finds like:
+				  FirstValue(xPath1,XPath2)		
+				  As Default "NOT_SET" can be used		   
+				:)				
+				VERSION := '1.0.0'
+				
+
+				MSG_VERSION := '1.0.0'
+				
+				(:ICN := CNT/IC/INTERCHANGE_CONTROL_NUMBER:)
+				MSG_ID_REF := ''
+				SENDER := 'Matrans'
+				ICH_SENDER_ID := 'Matrans'
+				SENDER_TYPE := "NOT_SET"
+				RECEIVER := /OUTTAKE_ORDER/ORDER/ord_rec_addressnr
+				ICH_RECEIVER_ID := /OUTTAKE_ORDER/ORDER/ord_rec_addressnr
+				RECEIVER_TYPE := "NOT_SET"
+				ICH_DATE := "NOT_SET"
+				(:SENDER_ROUTING_ADDRESS := CNT/IC/REVERSE_ROUTING_ADDRESS:)
+				(:RECEIVER_ROUTING_ADDRESS :=:) 
+				(:MSG_TESTFLAG :=:) 
+				COUNT := "1"
+				MANDT := "NOT_SET"
+				if(/OUTTAKE_ORDER/ORDER/ord_ind_loadinginstruction=true()){
+					MESFCT := 'LoadingSpecification'
+					MESSAGE_FUNCTION := 'LoadingSpecification'				
+					FUNCTION := 'LoadingSpecification'
+					MESSAGETYPE := 'OUTTAKE_ORDER_LoadingSpecification'
+					MSG_TYPE := 'OUTTAKE_ORDER_LoadingSpecification'
+				} else {
+					MESFCT := 'DeliveryMessage'
+					MESSAGE_FUNCTION := 'DeliveryMessage'				
+					FUNCTION := 'DeliveryMessage'
+					MESSAGETYPE := 'OUTTAKE_ORDER_DeliveryMessage'
+					MSG_TYPE := 'OUTTAKE_ORDER_DeliveryMessage'
+					
+				}
+				
+				
+			}
+		}
+	}
+
+
+

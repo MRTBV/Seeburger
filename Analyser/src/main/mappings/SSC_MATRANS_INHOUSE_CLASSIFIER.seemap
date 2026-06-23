@@ -1,0 +1,49 @@
+import schema default element namespace "http://www.seeburger.com/Analyser/ANY" at "ANY.seexsd" as source;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+
+@suppressCodeValidation("INCOMPATIBLE_CARDINALITY_FUNCTION_CALL_CODE")
+
+doc("mapping:output-parameters")
+{
+	let $type := replace(token-at-index(string-join(/ANY/InhouseSegment/InhouseField,';'), ';', 1), '"', '')
+	if($type = 'wm-out_ord.companycode')
+	{
+
+		VERSION := '1.0.0'
+		MSG_VERSION := '1.0.0'
+		MSG_ID_REF := ''
+		SENDER := 'Matrans'
+		ICH_SENDER_ID := 'Matrans'
+		SENDER_TYPE := "NOT_SET"
+		RECEIVER := replace(token-at-index(string-join(/ANY/InhouseSegment[2]/InhouseField,';'), ';', 4), '"', '')
+		ICH_RECEIVER_ID := replace(token-at-index(string-join(/ANY/InhouseSegment[2]/InhouseField,';'), ';', 4), '"', '')
+		MATRANS_DELIVERY_ADDRESNR := replace(token-at-index(string-join(/ANY/InhouseSegment[2]/InhouseField,';'), ';', 12), '"', '')
+		MATRANS_DELIVERY_ADDRES := replace(token-at-index(string-join(/ANY/InhouseSegment[2]/InhouseField,';'), ';', 13), '"', '')
+		RECEIVER_TYPE := "NOT_SET"
+		ICH_DATE := "NOT_SET"
+		COUNT := "1"
+		MANDT := "NOT_SET"
+		MESSAGETYPE := 'OUTTAKE_ORDER_Deliverymessage'
+		MSG_TYPE := 'OUTTAKE_ORDER_Deliverymessage'
+	}
+	
+	if($type = 'wm-in_ord.companycode')
+	{
+
+		VERSION := '1.0.0'
+		MSG_VERSION := '1.0.0'
+		MSG_ID_REF := ''
+		SENDER := 'Matrans'
+		ICH_SENDER_ID := 'Matrans'
+		SENDER_TYPE := "NOT_SET"
+		RECEIVER := replace(token-at-index(string-join(/ANY/InhouseSegment[2]/InhouseField,';'), ';', 4), '"', '')
+		ICH_RECEIVER_ID := replace(token-at-index(string-join(/ANY/InhouseSegment[2]/InhouseField,';'), ';', 4), '"', '')
+		RECEIVER_TYPE := "NOT_SET"
+		ICH_DATE := "NOT_SET"
+		COUNT := "1"
+		MANDT := "NOT_SET"
+		MESSAGETYPE := 'INTAKE_ORDER_Confirmation'
+		MSG_TYPE := 'INTAKE_ORDER_Confirmation'
+	}
+}
