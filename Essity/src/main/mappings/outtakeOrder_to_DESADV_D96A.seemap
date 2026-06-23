@@ -1,0 +1,239 @@
+(:
+outtakeOrder_to_DESADV_D96A.seemap
+created at May 17, 2026 by r.hilberts
+:)
+import schema default element namespace "http://www.seeburger.com/GCF/outtakeOrder" at "MATRANS/outtakeOrderConfirmation.seexsd" as source;
+import schema default element namespace "" at "EDIFACT/DESADV_UN_D96A_STD_V0000.seexsd" as target;
+
+declare option parser.input.document.namefilter "mapping:main-source-document";
+(:declare option SEGMENT_DELIMITER '\r\n';:)
+
+
+
+
+DESADV_UN_D96A_STD <- /outtakeOrderConfirmation
+{   
+	let $connection := openMapDataConnection("DS_MD")
+	let $klantnummerMapping := dataMapping($connection, "ESSITY_DESADV_KLANTNUMMER", "KEY", "VALUE")
+	let $artikelcodeMapping := dataMapping($connection, "ESSITY_DESADV_ARTIKELCODE", "KEY", "VALUE")
+	let $leveranciersnummerMapping := dataMapping($connection, "ESSITY_DESADV_LEVERANCIERSNUMMER", "KEY", "VALUE")
+	let $interchangeNumber := nextCounter("MRT-ESSITY-DESADV-COUNTER")
+	
+doc("mapping:output-parameters") {
+	if(getInputParameter("MATRANS_DELIVERY_ADDRESNR") != '794' and 
+		getInputParameter("MATRANS_DELIVERY_ADDRESNR") != '498' and 
+		getInputParameter("MATRANS_DELIVERY_ADDRESNR") != '588' and 
+		contains(getInputParameter("MATRANS_DELIVERY_ADDRES"),"Essity")) {
+			MATRANS_ESSITY_DESADV := true()	
+		}
+}	
+
+	UNB {
+		S001 {
+			_0001 := 'UNOC'
+			_0002 := 1
+		}
+		S002 {
+			_0004 := 'MRT01'
+			_0007 := 'ZZZ'
+		}
+		S003 {
+			_0010 := '7322540000009'
+			_0007 := 'ZZZ'
+		}
+		S004 {
+			_0017 := format-date(current-dateTime(),'yyMMdd')
+			_0019 := format-date(current-dateTime(),'HHmm')
+			
+		}
+		
+		_0020 := $interchangeNumber
+	}
+	
+	Message {
+		UNH {
+			_0062 := $interchangeNumber
+			S009 {
+				_0065 := 'DESADV'
+				_0052 := 'D'
+				_0054 := '96A'
+				_0051 := 'UN'
+				_0057 := 'EAN005'
+			}
+		}
+		BGM {
+			 C002 {
+			 	_1001 := '351'
+			 }
+			 C106 {
+			 	_1004 := record[1]/wm-out_ord.out_ordnr
+		         }
+		         _1225 := '9'
+		         }
+		DTM {
+			C507 {
+				_2005 := '137'
+				_2380 := format-date(current-dateTime(), "yyyyMMdd")
+				_2379 := '102'
+			}
+		}
+		DTM {
+			C507 {
+				_2005 := '11'
+				_2380 := format-date(current-dateTime(), "yyyyMMdd")
+				_2379 := '102'
+				
+			}
+			
+			}
+			SG1 {
+				RFF {
+					C506 {
+						_1153 := 'DQ'
+						_1154 := record[1]/wm-out_ord.out_ordnr
+					}
+				}
+			}
+		SG2 {
+			NAD {
+				_3035 := 'BY'
+				C082 {
+					_3039 :=  mapData($klantnummerMapping,record[1]/wm-out_ord.delivery_addressnr)
+					_3055 := '9'
+				}
+			}
+			NAD {
+				_3035 := 'SU'
+				C082 {
+					_3039 := mapData($leveranciersnummerMapping,record[1]/wm-out_ord.rec_addressnr)
+					_3055 := '9'
+				}
+				
+			}
+			NAD {
+				_3035 := 'DP'
+				C080 {
+					_3036 := token-at-index(record[1]/wm-out_ord.delivery_address, '\\[LF]', 1)
+				}
+				C059 {
+					_3042 := token-at-index(record[1]/wm-out_ord.delivery_address, '\\[LF]', 2)
+				}
+				_3164 := trim(substring(token-at-index(record[1]/wm-out_ord.delivery_address, '\\[LF]', 3),8,50))
+				_3251 := substring(token-at-index(record[1]/wm-out_ord.delivery_address, '\\[LF]', 3),1,7)
+				_3207 := record[1]/wm-out_ord.destination_countrycode
+			}
+			
+		}
+		SG10 {
+			CPS {
+				_7164 := '1'
+				
+			}
+			SG11 {
+				PAC {
+					_7224 := count(record)
+				}
+			}
+			}
+		for $i at $index in record {	
+		SG10  {	
+			CPS {
+				_7164 := $index + 1
+			}
+			SG11 {
+				PAC {
+					_7224 := '1'
+				}
+				SG13 {
+					PCI {
+						_4233 := '17'
+						C210 {
+							_7102 := wm-stock.barcode_id
+						}
+					}
+					SG14 {
+						GIN {
+							_7405 := 'BJ'
+							C208 {
+								_7402 := wm-stock.carrier_id
+							}
+						}
+						
+					}
+					
+				}
+				
+			}
+			SG15 {
+				LIN {
+					_1082 := $index + 1
+				}
+				PIA {
+					_4347 := '5'
+					C212 {
+						if(mapData($artikelcodeMapping,wm-out_line.cust_productcode)!=''){
+						_7140 := mapData($artikelcodeMapping,wm-out_line.cust_productcode)
+						}
+						else{
+							_7140 := wm-out_line.cust_productcode
+						}
+						
+						_7143 := 'SA'
+						
+					}
+				}
+				QTY {
+					C186 {
+						_6063 := '12'
+						if(wm-stock.airdry_weight = '0'){
+						_6060 := wm-stock.volume
+						}else {
+						_6060 := wm-stock.airdry_weight
+						}
+						
+						_6411 := 'KGM'
+					}
+				}
+				
+				for $remarks at $remarks_index in distinct-values(tokenize(wm-stock.remarks, '\\|')[. != '']) {
+					GIN {
+						_7405 := 'BN'
+						C208 {
+							_7402 := token-at-index(wm-stock.remarks, '\\|', $remarks_index)
+						}
+					}
+				}
+				
+				
+				SG16 {
+					RFF {
+						C506 {_1153 := 'BT'
+							_1154 := wm-stock.barcode_id
+						}
+					}
+				}
+			
+				
+				
+				
+				
+				
+				
+			}
+			
+			}
+		}
+		
+		let $segmentCount := target-node-count('segment', '*')
+		UNT {
+			_0074 := 1
+			_0062 :=  $segmentCount +1
+		}
+		}
+		
+		
+		UNZ {
+			_0036 := 1
+			_0020 := $interchangeNumber
+		}
+}
