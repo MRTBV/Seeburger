@@ -7,7 +7,7 @@ import schema default element namespace "" at "MATRANS/businessAcknowledgement.s
 
 declare option parser.input.document.namefilter "mapping:main-source-document";
 
-(: This option suppresses the creation of empty nodes . 
+(: This option suppresses the creation of empty nodes. 
  * A node is not empty if it is a primitive node with a value or if it contains a non-empty child node.
 :)
 @opt("skip.empty")

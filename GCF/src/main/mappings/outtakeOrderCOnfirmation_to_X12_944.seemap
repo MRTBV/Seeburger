@@ -108,19 +108,32 @@ _944_005010_STD <- /outtakeOrderConfirmation
 								_235 := 'IN'
 								_234 := record[1]/wm-out_line.custref_in2
 
-								for $i in record {
-								N9
-								{
-									_128 := 'LS'
-									_127 := token-at-index(wm-stock.remarks,'\\|',1)
-								}
-								
-																N9 
-								{
-									_128 := 'LS'
-									_127 := token-at-index(wm-stock.remarks,'\\|',2)
-								}
+						
+
+								(:for $i in record/wm-stock.remarks								{
+
+									N9									
+									{
+										_128 := 'LS'
+										_127 := token-at-index($i, '\\|', 1)
 									}
+
+									N9
+									{
+										_128 := 'LS'
+										_127 := token-at-index($i, '\\|', 2)
+									}
+								}:)
+								
+								for record {
+									for $x in tokenize(wm-stock.remarks, '\\|') where normalize-space($x) != '' {
+									N9 {
+										_128 := 'LS'
+										_127 := $x
+									}
+									
+									}
+								}
 							}
 						}
 					}
