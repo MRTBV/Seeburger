@@ -1,6 +1,7 @@
 (:
 softpakInvoice_to_X12_210.seemap
 created at May 10, 2026 by r.hilberts
+* tmp
 :)
 import schema default element namespace "" at "MATRANS/softPakInvoice.seexsd" as source;
 import schema default element namespace "" at "ANSIX12/210_004010_STD.seexsd" as target;
