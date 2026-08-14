@@ -26,7 +26,7 @@ _210_004010_STD <- /Invoices
 		I05 := 'ZZ'
 		I06 := 'MRT01          '
 		I05 := 'ZZ'
-		I07 := 'GFCTRANS       '
+		I07 := 'GCFTRANS       '
 		I08 := format-date(current-dateTime(), 'yyMMdd')
 		I09 := format-date(current-dateTime(), 'HHmm')
 		I10 := 'U'
@@ -40,7 +40,7 @@ _210_004010_STD <- /Invoices
 		{
 			_479 := 'IM'
 			_142 := 'MRT01'
-			_124 := 'GFCTRANS'
+			_124 := 'GCFTRANS'
 			_373 := format-date(current-dateTime(), 'yyyyMMdd')
 			_337 := format-date(current-dateTime(), 'HHmmss')
 			_28 := lFill($counterGroupControlNumber, '0', 9)
