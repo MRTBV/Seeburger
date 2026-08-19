@@ -60,7 +60,7 @@ _210_004010_STD <- /Invoices
 					_145 := Invoice_numbers/invoiceref
 					_146 := 'CC'
 					_373 := format-date(invoice_date, 'yyyyMMdd')
-					_193 := (string(round(amount * 100))
+					_193 := (string(round(number(amount) * 100)))
 					_140 := 'SCA2'
 				}
 
