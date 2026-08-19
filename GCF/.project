@@ -21,4 +21,11 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>com.seeburger.bicng.ide.project.BICNGNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/test/messages/softpakInvoice_to_X12_210/SoftpakInvoice_thousands_and_decimals.xml</name>
+			<type>1</type>
+			<location>C:/Users/adm.w.bijl/Downloads/SoftpakInvoice_thousands_and_decimals.xml</location>
+		</link>
+	</linkedResources>
 </projectDescription>
