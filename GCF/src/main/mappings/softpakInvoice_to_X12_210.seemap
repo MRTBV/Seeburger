@@ -5,7 +5,7 @@ created at May 10, 2026 by r.hilberts
 import schema default element namespace "" at "MATRANS/softPakInvoice.seexsd" as source;
 import schema default element namespace "" at "ANSIX12/210_004010_STD.seexsd" as target;
 
-declare option truncate "right";
+declare option truncate "right"; 
 declare option parser.input.document.namefilter "mapping:main-source-document";
 declare option ELEMENT_DELIMITER "*";
 declare option SEGMENT_DELIMITER '~\r\n';

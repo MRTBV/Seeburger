@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Invoices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Invoice>
+    <invoicenummer>60083049</invoicenummer>
+    <invoice_date>2026-09-11</invoice_date>
+    <currency>EUR</currency>
+    <amount>2162.06</amount>
+    <Invoice_numbers>
+      <invoiceref>9000149739</invoiceref>
+      <date_loading>2026-09-10</date_loading>
+      <custrefout_4/>
+      <weight_KGS>23573.0</weight_KGS>
+      <Supplier/>
+      <delivery_address>Essity Products Gemerska
+Gemerska Hôrka 400
+4912 Gemerska
+Slovakia</delivery_address>
+      <Product_description>Fluff Pulp Reels</Product_description>
+    </Invoice_numbers>
+  </Invoice>
+</Invoices>
